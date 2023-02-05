@@ -7,8 +7,8 @@ const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
   cloud_name: "dg8htxonw",
-  api_key: "473797789945362",
-  api_secret: "oO8RWe7vj1wdMWYaZWww9dwlocU",
+  api_key: process.env.CLOUDINARY_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
 });
 
 const cloudinaryUpload = (file: any) => cloudinary.uploader.upload(file);
