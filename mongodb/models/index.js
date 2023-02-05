@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 import { itemSchema, categorySchema, listSchema } from '../schemas';
 
-const conn = mongoose.createConnection("mongodb+srv://admin:mlxWu1NyQwSO6zu8@cluster0.oc6ex8c.mongodb.net/shopping-lists?retryWrites=true&w=majority", {
+const URL_STRING = process.env.MONGO_DB_CONNECTION_URL;
+console.log(URL_STRING)
+const conn = mongoose.createConnection(URL_STRING, {
     dbName: "shopping-lists"
 })
 export const Item = mongoose.models.Item || conn.model('Item', itemSchema);
