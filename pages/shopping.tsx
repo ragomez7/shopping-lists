@@ -7,6 +7,7 @@ import Category from '../components/Categories';
 import ShoppingList from '../components/ShoppingList';
 import AddNewItemForm from '../components/AddNewItemForm.tsx';
 import ItemInfo from '../components/ItemInfo';
+import SideBar from '../components/Sidebar';
 
 
 interface IShoppingDashboardContext {
@@ -43,13 +44,10 @@ const ShoppingDashboardPage = () => {
         async function fetchPendingListOrCreateOne() {
             const response = await fetch('http://localhost:3000/api/lists');
             const lists = await response.json();
-            // console.log(lists)
             const pendingList = lists?.find((list) => list.status === 'pending');
-            // console.log(pendingList)
             if (pendingList) {
                 setCurrentShoppingList(pendingList);
             } else {
-                // create new list
                 const response = await fetch(`http://localhost:3000/api/lists?name=Shopping List`);
                 const newList = await response.json();
                 setCurrentShoppingList(newList);
@@ -73,15 +71,7 @@ const ShoppingDashboardPage = () => {
                 height: '100%',
                 display: 'flex'
             }} >
-                <Box
-                    className="SideBar"
-                    sx={{
-                        height: '907px',
-                        width: '94px',
-                        backgroundColor: 'black'
-                    }}
-                >
-                </Box>
+                <SideBar />
                 <Box className="ItemsList"
                     sx={{
                         width: '957px',
@@ -109,7 +99,7 @@ const ShoppingDashboardPage = () => {
                         >
                             <span style={{
                                 color: '#F9A109'
-                            }} >Shoppingify{' '}</span>
+                            }}>Shoppingify{' '}</span>
                             allows you take your shopping list where you go
                         </Typography>
                         <TextField
