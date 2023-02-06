@@ -1,7 +1,9 @@
+import { createContext } from 'react';
 import { Typography } from "@mui/material";
 import { v4 as uuid } from 'uuid'
 import InListCategoryItem from "./InListCategoryItem";
 
+export const ListCategoryContext = createContext({});
 const InListCategory = ({ category, isInEditingMode }) => {
     const categoryItemCount = {};
     const seenItems = new Set();
@@ -21,8 +23,11 @@ const InListCategory = ({ category, isInEditingMode }) => {
         };
         itemCountsArray.push(itemCountObject);
     }
+    const inListCategoryContextObject = {
+        categoryId: category._id.toString()
+    }
     return (
-        <>
+        <ListCategoryContext.Provider value={inListCategoryContextObject}>
             <Typography
                 sx={{
                     marginTop: '40px',
@@ -43,7 +48,7 @@ const InListCategory = ({ category, isInEditingMode }) => {
                     isInEditingMode={isInEditingMode}
                 />
             ))}
-        </>
+        </ListCategoryContext.Provider>
     )
 };
 

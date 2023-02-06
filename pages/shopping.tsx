@@ -44,7 +44,7 @@ const ShoppingDashboardPage = () => {
             const response = await fetch('http://localhost:3000/api/lists');
             const lists = await response.json();
             // console.log(lists)
-            const pendingList = lists.find((list) => list.status === 'pending');
+            const pendingList = lists?.find((list) => list.status === 'pending');
             // console.log(pendingList)
             if (pendingList) {
                 setCurrentShoppingList(pendingList);

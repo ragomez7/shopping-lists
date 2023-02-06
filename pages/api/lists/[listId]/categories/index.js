@@ -25,17 +25,17 @@ export default async function handle(req, res) {
             else res.status(400).send(err);
         }
     } else if (req.method === 'POST') {
-        const { listId, categoryId, itemId } = req.query;
+        const { listId, categoryId, itemId, itemName } = req.query;
         try {
             const category = await Category.findById(categoryId);
             if (category === null) {
                 throw new CategoryNotFoundError()
             }
-            const itemToInsert = await category.items.find((item) => item._id.toString() === itemId);
+            const itemToInsert = itemName ?  await category.items.find((item) => item.name.toString() === itemName)
+                                          :  await category.items.find((item) => item._id.toString() === itemId);
             category.items = [itemToInsert];
             const list = await List.findById(listId);
             const categoryAlreadyInList = list.categories.find((category) => category._id.toString() === categoryId);
-            console.log(categoryAlreadyInList)
             if (categoryAlreadyInList) {
                 const { name, note, imageUrl, createdAt, updatedAt } = itemToInsert;
                 const itemToInsertDeepCopy = {
@@ -45,7 +45,6 @@ export default async function handle(req, res) {
                     createdAt,
                     updatedAt
                 }
-                console.log(itemToInsertDeepCopy)
                 const updatedList = await List.findOneAndUpdate(
                     { _id: listId, "categories._id": categoryId },
                     { $push: { "categories.$.items": itemToInsertDeepCopy } },
@@ -97,7 +96,7 @@ export default async function handle(req, res) {
             res.status(400).send(err)
         }
     } else if (req.method === 'DELETE') {
-        const { listId, categoryId, itemId, itemName } = req.query;
+        const { listId, categoryId, itemId, itemName, deleteAllInstances } = req.query;
         try {
             let updatedList;
             if (!itemName) {
@@ -108,12 +107,37 @@ export default async function handle(req, res) {
                 console.log(updatedList)
                 res.status(200).send(updatedList);
             } else {
-                updatedList = await List.findOneAndUpdate(
-                    { _id: listId, "categories.items.name": itemName },
-                    { $pull: { "categories.$.items": { name: itemName } } },
-                    { new: true });
-                console.log(updatedList)
-                res.status(200).send(updatedList);
+                if (deleteAllInstances) {
+                    updatedList = await List.findOneAndUpdate(
+                        { _id: listId, "categories.items.name": itemName },
+                        { $pull: { "categories.$.items": { name: itemName } } },
+                        { new: true });
+                    console.log(updatedList)
+                    res.status(200).send(updatedList);
+                } else {
+                    const firstInstanceOfItemName = await List.findOne(
+                        {_id: listId}
+                    );
+                    for (const category of firstInstanceOfItemName.categories) {
+                        if (category._id.toString() === categoryId) {
+                            let idx = 0;
+                            for (const item of category.items) {
+                                console.log(item.name)
+                                if (item.name === itemName) {
+                                    category.items.splice(idx, 1)
+                                    break;
+                                }
+                            idx += 1;
+                            }
+                        }
+                    }
+                    updatedList = await List.findOneAndUpdate(
+                        { _id: listId, "categories.items.name": itemName },
+                        { $set: firstInstanceOfItemName },
+                        { new: true });
+                    res.status(200).send(updatedList);
+                }
+
             }
 
 

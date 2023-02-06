@@ -28,7 +28,7 @@ const InListCategoryItem = ({ name, count, isInEditingMode }) => {
                 {name}
             </Typography>
             {isInEditingMode ?
-                <ManageItemQtyInListButton count={count} /> 
+                <ManageItemQtyInListButton count={count} itemName={name} /> 
                     :
                 <Typography
                     sx={{

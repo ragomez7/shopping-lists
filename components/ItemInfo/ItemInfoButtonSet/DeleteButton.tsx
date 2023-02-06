@@ -12,20 +12,27 @@ const DeleteButton = () => {
     const { setUserIsViewingItem, currentShoppingList } = useContext(ShoppingDashboardContext);
     const { _id: listId } = currentShoppingList;
     const handleDeleteButtonOnClick = async () => {
-        console.log(_id, name, categoryId)
         const deleteItemFromList = async () => {
-            const response = await fetch(`http://localhost:3000/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${name}`, {
-                method: 'DELETE'
-            });
-            const json = await response.json();
-            console.log(json)
+            try {
+                const response = await fetch(`http://localhost:3000/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${name}&deleteAllInstances=true`, {
+                    method: 'DELETE'
+                });
+                const json = await response.json();
+            } catch (err) {
+                console.log(err)
+            }
+            
         }
         const deleteItemFromCategory = async () => {
-            const response = await fetch(`http://localhost:3000/api/categories/${categoryId}/items?itemId=${_id}`, {
-                method: 'DELETE'
-            })
-            const json = await response.json();
-            console.log(json)
+            try {
+                const response = await fetch(`http://localhost:3000/api/categories/${categoryId}/items?itemId=${_id}`, {
+                    method: 'DELETE'
+                })
+                const json = await response.json();
+            } catch (err) {
+                console.log(err)
+            }
+            
         };
         console.log('1')
         await deleteItemFromList();
