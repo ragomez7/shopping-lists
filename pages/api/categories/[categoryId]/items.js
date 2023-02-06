@@ -46,6 +46,7 @@ export default async function handle(req, res) {
 
     } else if (req.method === 'POST') {
         const { categoryId, name, note, imageUrl } = req.query;
+        console.log(name, note, imageUrl)
         try {
             const newItem = {
                 name,

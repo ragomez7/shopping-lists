@@ -4,17 +4,25 @@ import { v4 as uuid } from 'uuid';
 import { Box } from "@mui/material"
 import CategoryItem from "./CategoryItem";
 
-interface ItemProps {
+export interface CategoryItemProps {
+    _id?: string
     name: string
-}
+    categoryName?: string
+    categoryId?: string
+    note?: string
+    imageUrl?: string
+    firstOfLine: boolean
+    belongsToFirstLine: boolean
+} 
 
 interface TryProps {
-    name?: string
-    items?: Array<ItemProps>
+    name?: string;
+    items?: Array<CategoryItemProps>;
+    _id: string;
 }
 
 interface CategoryProps {
-    category: TryProps
+    category: TryProps;
 }
 const Category: React.FC<CategoryProps> = ({category}) => {
     return (
@@ -42,7 +50,12 @@ const Category: React.FC<CategoryProps> = ({category}) => {
                 category.items.map((item, index) => (
                     <CategoryItem 
                         key={uuid()}
-                        name={item.name} 
+                        _id={item._id}
+                        name={item.name}
+                        categoryName={category?.name}
+                        categoryId={category?._id}
+                        note={item.note}
+                        imageUrl={item.imageUrl}
                         firstOfLine={index % 4 === 0}
                         belongsToFirstLine={index < 4}
                     />

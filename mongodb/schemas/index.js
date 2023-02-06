@@ -20,7 +20,7 @@ export const categorySchema = new Schema({
 export const listSchema = new Schema({
     // userId: { type: mongoose.ObjectId, default: new mongoose.Types.ObjectId()},
     name: String,
-    status: { type: String, default: "new" },
+    status: { type: String, default: "pending" },
     categories: { type: [categorySchema], default: []},
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },

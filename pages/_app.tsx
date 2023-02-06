@@ -22,6 +22,12 @@ declare module "@mui/material/styles" {
       grey200?: string;
     };
   }
+  interface Palette {
+    white: Palette['primary']
+  }
+  interface PaletteOptions {
+    white: PaletteOptions['primary']
+  }
 }
 
 const theme = createTheme({
@@ -32,9 +38,12 @@ const theme = createTheme({
     grey200: grey[200],
   },
   palette: {
-    primary: {
+    // primary: {
+    //   main: '#FFFFFF'
+    // },
+    white: {
       main: '#FFFFFF'
-    } 
+    }
   }
 });
 

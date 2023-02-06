@@ -1,4 +1,5 @@
 import { Category } from "../../../mongodb/models";
+import dbConnect from '../../../lib/dbConnect.ts'
 
 export class CategoryNotFoundError extends Error {
     constructor() {
@@ -9,6 +10,7 @@ export class CategoryNotFoundError extends Error {
 }
 
 export default async function handle(req, res) {
+    await dbConnect();
     if (req.method === 'GET') {
         const { categoryId } = req.query;
         const categoryIdParamExists = categoryId;
