@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { ShoppingDashboardContext } from '../../pages/shopping';
-import { Box, Button, Typography } from "@mui/material"
-import { v4 as uuid } from 'uuid'
+import { Button } from "@mui/material"
 
 
 const BackButton = () => {

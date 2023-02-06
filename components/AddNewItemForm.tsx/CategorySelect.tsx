@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Typography } from '@mui/material';
-import Button from '@mui/material/Button';
 
 interface CategorySelectProps {
     categories: Array<object>

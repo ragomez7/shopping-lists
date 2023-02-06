@@ -1,6 +1,8 @@
-import { Box, Button, Icon, Typography, TextField } from "@mui/material"
+import { Box } from "@mui/material"
 import { useState, FC, useContext } from "react";
 import { ShoppingDashboardContext } from "../../pages/shopping";
+import AddNewItemFormButtonSet from "./AddNewItemFormButtonSet";
+import AddNewItemFormTitle from "./AddNewItemFormTitle";
 import CategorySelect from "./CategorySelect";
 import ImageUrlTextField from "./ImageUrlTextField";
 import NameTextField from "./NameTextField";
@@ -16,7 +18,6 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
     const [url, setUrl] = useState<string>("");
     const [selectedCategory, setSelectedCategory] = useState<any>("");
     const { setUserIsAddingNewItem } = useContext(ShoppingDashboardContext);
-    console.log(selectedCategory)
     const handleAddNewItemOnClick = () => {
         async function addItemToExistingCategory() {
             const categoryToAddItemTo = categories.find((category) => category.name.toLowerCase() === selectedCategory.toLowerCase());
@@ -33,7 +34,7 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
                 method: 'POST'
             })
             const json = await addNewCategoryResponse.json();
-            const categoryId = json._id; 
+            const categoryId = json._id;
             console.log(categoryId)
             await fetch(`http://localhost:3000/api/categories/${categoryId}/items?name=${name}&note?=${note}&imageUrl=${url}`, {
                 method: 'POST'
@@ -56,67 +57,12 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
                 paddingTop: '35px'
             }}
         >
-            <Typography
-                sx={{
-                    width: '176px',
-                    height: '30px',
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '24px',
-                    lineHeight: '30px',
-                    color: '#000000'
-                }}
-            >
-                Add New Item
-            </Typography>
+            <AddNewItemFormTitle />
             <NameTextField name={name} setName={setName} />
             <NoteTextField note={note} setNote={setNote} />
             <ImageUrlTextField url={url} setUrl={setUrl} />
             <CategorySelect categories={categories} setSelectedCategory={setSelectedCategory} />
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'space-around',
-                    width: '310px',
-                    paddingX: '30px',
-                    marginTop: '50px'
-                }}
-            >
-                <Button
-                    onClick={() => setUserIsAddingNewItem(false)}
-                    style={{
-                        width: "87px",
-                        height: '61px',
-                        color: 'black',
-                        fontFamily: 'Quicksand',
-                        fontWeight: 700,
-                        fontSize: '16px',
-                        lineHeight: '20px',
-                        textTransform: 'none',
-                        borderRadius: '12px',
-                        border: '1px solid black'
-                    }}
-                >
-                    cancel
-                </Button>
-                <Button
-                    onClick={handleAddNewItemOnClick}
-                    style={{
-                        width: "87px",
-                        height: '61px',
-                        backgroundColor: '#F9A109',
-                        color: 'white',
-                        fontFamily: 'Quicksand',
-                        fontWeight: 700,
-                        fontSize: '16px',
-                        lineHeight: '20px',
-                        textTransform: 'none',
-                        borderRadius: '12px'
-                    }}
-                >
-                    Save
-                </Button>
-            </Box>
+            <AddNewItemFormButtonSet handleAddNewItemOnClick={handleAddNewItemOnClick} />
         </Box>
     )
 };

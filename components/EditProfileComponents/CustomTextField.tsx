@@ -44,23 +44,25 @@ const CustomTextField: FunctionComponent<CustomTextFieldProps> = ({
       return undefined;
     }
     if (editNameDisabled) {
-      return (<IconButton
-      onClick={handleEditButtonClick}
-      sx={{
-        padding: 0,
-      }}
-    >
-      <SvgIcon
-        sx={{
-          color: isLight ? undefined : 'lightgrey',
-          '&:hover path': {
-            fill: "#1D8AED",
-          }
-        }}
-      >
-        <EditIcon />
-      </SvgIcon>
-    </IconButton>);
+      return (
+        <IconButton
+          onClick={handleEditButtonClick}
+          sx={{
+            padding: 0,
+          }}
+        >
+          <SvgIcon
+            sx={{
+              color: isLight ? undefined : 'lightgrey',
+              '&:hover path': {
+                fill: "#1D8AED",
+              }
+            }}
+          >
+            <EditIcon />
+          </SvgIcon>
+        </IconButton>
+        );
     }
     return (<IconButton
       onClick={handleEditButtonClick}
@@ -118,7 +120,7 @@ const CustomTextField: FunctionComponent<CustomTextFieldProps> = ({
           disabled: editNameDisabled,
           inputRef: textInput,
           endAdornment: (
-           EditIcon_2
+            EditIcon_2
           ),
           sx: {
             marginTop: "3px",

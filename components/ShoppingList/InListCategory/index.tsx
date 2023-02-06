@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import { v4 as uuid } from 'uuid'
 import InListCategoryItem from "./InListCategoryItem";
 
-const InListCategory = ({ category }) => {
+const InListCategory = ({ category, isInEditingMode }) => {
     const categoryItemCount = {};
     const seenItems = new Set();
     for (const item of category.items) {
@@ -40,6 +40,7 @@ const InListCategory = ({ category }) => {
                     key={uuid()}
                     name={item.name}
                     count={item.count}
+                    isInEditingMode={isInEditingMode}
                 />
             ))}
         </>
