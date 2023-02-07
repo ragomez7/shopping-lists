@@ -12,7 +12,9 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
     note,
     imageUrl,
     firstOfLine, 
-    belongsToFirstLine 
+    belongsToFirstLine,
+    isListReviewCategory,
+    count
 }) => {
     return (
         <Typography
@@ -25,7 +27,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
                 marginLeft: firstOfLine ? null : '20px',
                 marginTop: belongsToFirstLine ? '18px' : '46px',
                 paddingY: '13px',
-                paddingX: '16px',
+                paddingLeft: '16px',
+                paddingRight: '5px',
                 fontFamily: 'Quicksand',
                 fontWeight: 600,
                 fontSize: '16px',
@@ -36,7 +39,20 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
             }}
         >
             {name}
-            <ViewItemButton 
+            { isListReviewCategory ? 
+                <Typography
+                    sx={{
+                        fontFamily: 'Quicksand',
+                        fontWeight: 600,
+                        fontSize: '12px',
+                        lineHeight: '15px',
+                        color: '#F9A10A',
+                        width: '45px'
+                    }}
+                >
+                    {count} pcs
+                </Typography> :
+                <ViewItemButton 
                 _id={_id}
                 name={name}
                 categoryName={categoryName}
@@ -44,6 +60,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
                 note={note}
                 imageUrl={imageUrl}
             />
+            }
         </Typography>
     )
 };

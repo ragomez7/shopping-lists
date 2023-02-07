@@ -15,7 +15,7 @@ export interface CategoryItemProps {
     imageUrl?: string
     firstOfLine: boolean
     belongsToFirstLine: boolean
-} 
+}
 
 interface TryProps {
     name?: string;
@@ -26,11 +26,11 @@ interface TryProps {
 interface CategoryProps {
     category: TryProps;
 }
-const Category: React.FC<CategoryProps> = ({category}) => {
+const Category: React.FC<CategoryProps> = ({ category, isListReviewCategory }) => {
     return (
         <Box>
             <CategoryName name={category?.name} />
-            <CategoryItemList category={category} />
+            <CategoryItemList category={category} isListReviewCategory={isListReviewCategory} />
         </Box>
     )
 };

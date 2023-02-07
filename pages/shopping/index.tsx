@@ -3,14 +3,15 @@ import { TextField } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Box, Button } from "@mui/material"
 import { v4 as uuid } from 'uuid';
-import Category from '../components/Categories';
-import ShoppingList from '../components/ShoppingList';
-import AddNewItemForm from '../components/AddNewItemForm.tsx';
-import ItemInfo from '../components/ItemInfo';
-import SideBar from '../components/Sidebar';
-import ItemsList from '../components/ItemsList';
-import ListHistory from '../components/ListHistory';
-import ListStatistics from '../components/ListStatistics';
+import Category from '../../components/Categories';
+import ShoppingList from '../../components/ShoppingList';
+import AddNewItemForm from '../../components/AddNewItemForm.tsx';
+import ItemInfo from '../../components/ItemInfo';
+import SideBar from '../../components/Sidebar';
+import ItemsList from '../../components/ItemsList';
+import ListHistory from '../../components/ListHistory';
+import ListStatistics from '../../components/ListStatistics';
+import Layout from '../../components/Layout';
 
 
 interface IShoppingDashboardContext {
@@ -21,6 +22,11 @@ interface IShoppingDashboardContext {
     itemThatIsBeingViewed: object
     setItemThatIsBeingViewed: (newState: object) => void
     currentShoppingList: object
+    searchTerm: string
+    setSearchTerm: (newState: string) => void
+    categories: object []
+    currentUI: string
+    setCurrentUI: (newState: string) => void
 }
 export const ShoppingDashboardContext = createContext<IShoppingDashboardContext>({});
 const ShoppingDashboardPage = () => {
@@ -48,7 +54,7 @@ const ShoppingDashboardPage = () => {
         async function fetchAllListsAndCheckIfPendingListExistsElseCreateOne() {
             const response = await fetch('http://localhost:3000/api/lists');
             const lists = await response.json();
-            const pendingList = lists?.find((list) => list.status === 'pending');
+            const pendingList = lists?.length ? [...lists].find((list) => list.status === 'pending') : [];
             if (pendingList) {
                 setCurrentShoppingList(pendingList);
             } else {
@@ -59,6 +65,10 @@ const ShoppingDashboardPage = () => {
             setAllLists(lists);
         }
         fetchAllListsAndCheckIfPendingListExistsElseCreateOne()
+        console.log(document.location)
+        if(document.location.toString().includes('redirectToHistory')) {
+            setCurrentUI("ListHistory")
+        }
     }, [userIsAddingNewItem, userIsViewingItem])
     const contextObject = {
         userIsAddingNewItem,
@@ -76,11 +86,7 @@ const ShoppingDashboardPage = () => {
     }
     return (
         <ShoppingDashboardContext.Provider value={contextObject}>
-            <Box sx={{
-                height: '100%',
-                display: 'flex'
-            }} >
-                <SideBar />
+            <Layout>
                 {currentUI === "ItemsList" ?
                     <ItemsList /> :
                  currentUI === "ListHistory" ?
@@ -89,7 +95,7 @@ const ShoppingDashboardPage = () => {
                     <ListStatistics /> :
                 <ItemsList />
                     }
-            </Box>
+            </Layout>
         </ShoppingDashboardContext.Provider>
     )
 };

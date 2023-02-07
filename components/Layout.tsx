@@ -3,6 +3,7 @@ import { ThemeOptions } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import { ModeContext } from "../pages/_app";
+import SideBar from "./Sidebar";
 import Header from "./Header";
 
 type Props = {
@@ -13,15 +14,13 @@ const Layout: React.FC<Props> = (props) => {
   const theme: ThemeOptions = useTheme();
   const { isLight } = useContext(ModeContext);
   return (
-    <Box
-      className="RootRootRoot"
-      sx={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: isLight ? theme?.colors?.white : theme?.colors?.black,
-      }}
-    >
-    </Box>
+    <Box sx={{
+      height: '100%',
+      display: 'flex'
+  }} >
+      <SideBar />
+      {props.children}
+  </Box>
   );
 };
 

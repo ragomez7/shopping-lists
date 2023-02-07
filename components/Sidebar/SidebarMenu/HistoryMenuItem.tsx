@@ -8,6 +8,12 @@ import { ShoppingDashboardContext } from '../../../pages/shopping';
 
 const HistoryMenuItem = () => {
     const { setCurrentUI } = useContext(ShoppingDashboardContext);
+    const handleHistoryButtonClick = () => {
+        if (setCurrentUI) setCurrentUI("ListHistory")
+        else {
+            document.location.href = "http://localhost:3000/shopping?redirectToHistory=true"
+        }
+    }
     return (
         <Box
             sx={{
@@ -20,7 +26,7 @@ const HistoryMenuItem = () => {
         >
             <Tooltip title="History" placement="right" >
                 <IconButton
-                    onClick={() => setCurrentUI("ListHistory")}
+                    onClick={handleHistoryButtonClick}
                     sx={{
                         padding: 0,
                         height: '18.5px',
