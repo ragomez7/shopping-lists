@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon'
 import RemoveIcon from '@mui/icons-material/Remove';
-import { ListCategoryContext } from '../..';
-import { ShoppingDashboardContext } from '../../../../../pages/shopping';
+import { ListCategoryContext } from '../../..';
+import { ShoppingDashboardContext } from '../../../../../../pages/shopping';
 
 const RemoveOneUnitButton = ({ itemName, innerCountTally, setInnerCountTally }) => {
     const handleRemoveOneUnitButtonOnClick = async () => {

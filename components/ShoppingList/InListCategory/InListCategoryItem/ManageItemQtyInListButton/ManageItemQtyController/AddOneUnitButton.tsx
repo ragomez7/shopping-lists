@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import IconButton from '@mui/material/IconButton'
 import AddIcon from '@mui/icons-material/Add';
-import { ShoppingDashboardContext } from '../../../../../pages/shopping';
-import { ListCategoryContext } from '../..';
+import { ShoppingDashboardContext } from '../../../../../../pages/shopping';
+import { ListCategoryContext } from '../../..';
 
 const AddOneUnitButton = ({ itemName, innerCountTally, setInnerCountTally }) => {
     const handleAddOneUnitButtonOnClick = async () => {

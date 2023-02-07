@@ -71,8 +71,6 @@ export async function getServerSideProps(context) {
     const list = JSON.stringify(await List.findById(id));
     const currentList = JSON.stringify(await List.findById(currentShoppingList));
     console.log(currentList)
-    // const fetchCurrentList = await fetch(`http://localhost:3000/api/lists${currentShoppingList}`);
-    // const currentList = await fetchCurrentList.json();
     return {
         props: {
             list,
