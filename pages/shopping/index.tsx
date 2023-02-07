@@ -17,6 +17,8 @@ interface IShoppingDashboardContext {
     categories: object []
     currentUI: string
     setCurrentUI: (newState: string) => void
+    isEditingItemQty: boolean
+    setIsEditingItemQty: (newState: boolean) => void
 }
 export const ShoppingDashboardContext = createContext<IShoppingDashboardContext>({});
 const ShoppingDashboardPage = () => {
@@ -26,6 +28,7 @@ const ShoppingDashboardPage = () => {
     const [itemThatIsBeingViewed, setItemThatIsBeingViewed] = useState<object>({});
     const [currentShoppingList, setCurrentShoppingList] = useState<object>({});
     const [ userIsViewingItem, setUserIsViewingItem ] = useState<boolean>(false);
+    const [isEditingItemQty, setIsEditingItemQty] = useState(false);
     const [ currentUI, setCurrentUI ] = useState<string>("ItemsList");
     const [ allLists, setAllLists ] = useState<object>({})
     useEffect(() => {
@@ -55,11 +58,10 @@ const ShoppingDashboardPage = () => {
             setAllLists(lists);
         }
         fetchAllListsAndCheckIfPendingListExistsElseCreateOne()
-        console.log(document.location)
         if(document.location.toString().includes('redirectToHistory')) {
             setCurrentUI("ListHistory")
         }
-    }, [userIsAddingNewItem, userIsViewingItem])
+    }, [userIsAddingNewItem, userIsViewingItem, isEditingItemQty])
     const contextObject = {
         userIsAddingNewItem,
         setUserIsAddingNewItem,
@@ -72,7 +74,11 @@ const ShoppingDashboardPage = () => {
         setSearchTerm,
         categories,
         currentUI,
-        setCurrentUI
+        setCurrentUI,
+        isEditingItemQty,
+        setIsEditingItemQty
+        // userIsManagingItemInShoppingList,
+        // setUserIsManagingItemInShoppingList        
     }
     return (
         <ShoppingDashboardContext.Provider value={contextObject}>

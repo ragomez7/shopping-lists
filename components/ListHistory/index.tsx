@@ -1,9 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-
-import { SvgIcon } from '@mui/material';
-import Link from 'next/link';
 import ShoppingList from '../ShoppingList';
 import { ShoppingDashboardContext } from '../../pages/shopping';
 import DateTitle from './DateTitle';

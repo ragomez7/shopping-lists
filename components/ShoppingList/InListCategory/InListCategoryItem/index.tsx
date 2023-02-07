@@ -1,7 +1,9 @@
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { Typography, Box } from "@mui/material";
 import ManageItemQtyInListButton from "./ManageItemQtyInListButton";
 
 const InListCategoryItem = ({ name, count, isInEditingMode }) => {
+    const [innerCountTally, setInnerCountTally] = useState(count);
     return (
         <Box
             sx={{
@@ -28,8 +30,11 @@ const InListCategoryItem = ({ name, count, isInEditingMode }) => {
                 {name}
             </Typography>
             {isInEditingMode ?
-                <ManageItemQtyInListButton count={count} itemName={name} /> 
-                    :
+                <ManageItemQtyInListButton 
+                    innerCountTally={innerCountTally} 
+                    setInnerCountTally={setInnerCountTally}
+                    itemName={name} 
+                /> :
                 <Typography
                     sx={{
                         fontFamily: 'Quicksand',
@@ -46,7 +51,7 @@ const InListCategoryItem = ({ name, count, isInEditingMode }) => {
                         fontWeight: 500
                     }}
                 >
-                    {count} pcs
+                    {innerCountTally} pcs
                 </Typography>
             }
 

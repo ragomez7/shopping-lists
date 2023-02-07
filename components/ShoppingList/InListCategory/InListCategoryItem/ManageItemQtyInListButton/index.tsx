@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
+import { ShoppingDashboardContext } from '../../../../../pages/shopping';
 import ItemCountTallyButton from './ItemCountTallyButton';
 import ManageItemQtyController from './ManageItemQtyController';
 
-const ManageItemQtyInListButton = ({ count, itemName }) => {
-    const [isEditingItemQty, setIsEditingItemQty] = useState(false);
-    const [innerCountTally, setInnerCountTally] = useState(count);
+const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemName }) => {
+    const { isEditingItemQty, setIsEditingItemQty } = useContext(ShoppingDashboardContext);
     useEffect(() => {
         const shoppingListElem = document.getElementById('shopping-list')
         shoppingListElem?.addEventListener('click', (e) => {
