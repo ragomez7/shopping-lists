@@ -8,7 +8,7 @@ import { ShoppingDashboardContext } from '../../../../../../pages/shopping';
 const RemoveOneUnitButton = ({ itemName, innerCountTally, setInnerCountTally }) => {
     const handleRemoveOneUnitButtonOnClick = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`, {
                 method: 'DELETE'
             });
             const json = await response.json();

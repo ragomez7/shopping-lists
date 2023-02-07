@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 const Index = () => {
   const { data: session } = useSession();
   useEffect(() => {
-    document.location.href = "http://localhost:3000/shopping"
+    document.location.href = `${process.env.NEXT_PUBLIC_URL}/shopping`
   }, [])
   return (
     <Layout>

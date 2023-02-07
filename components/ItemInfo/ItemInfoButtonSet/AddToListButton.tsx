@@ -9,8 +9,7 @@ const AddToListButton = () => {
     const { _id, categoryId } = useContext(ItemInfoContext);
     const handleAddToListButtonOnClick = async () => {
         const addItemToList = async () => {
-            console.log(`http://localhost:3000/api/lists/${currentShoppingList._id}/categories?categoryId=${categoryId}&itemId=${_id}`)
-            const response = await fetch(`http://localhost:3000/api/lists/${currentShoppingList._id}/categories?categoryId=${categoryId}&itemId=${_id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/lists/${currentShoppingList._id}/categories?categoryId=${categoryId}&itemId=${_id}`, {
                 method: "POST"
             })
             const json = await response.json();
