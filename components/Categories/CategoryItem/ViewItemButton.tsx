@@ -13,7 +13,6 @@ const ViewItemButton = ({
 }) => {
     const { setItemThatIsBeingViewed, setUserIsViewingItem } = useContext(ShoppingDashboardContext);
     const handleViewItemOnClick = () => {
-        document.location.href = "http://localhost:3000/shopping";
         setItemThatIsBeingViewed(itemInfo);
         setUserIsViewingItem(true);
     }
@@ -27,13 +26,12 @@ const ViewItemButton = ({
     }
     return (
         <IconButton
+        onClick={handleViewItemOnClick}
             sx={{
                 padding: 0
             }}
         >
-            <ViewIcon 
-                onClick={handleViewItemOnClick}
-            />
+            <ViewIcon />
         </IconButton>
     )
 }

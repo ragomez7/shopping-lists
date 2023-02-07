@@ -47,7 +47,7 @@ const ItemsList = () => {
                     >
                         <span style={{
                             color: '#F9A109'
-                        }}>Shoppingify{' '}</span>
+                        }}>Shopper{' '}</span>
                         allows you take your shopping list where you go
                     </Typography>
                     <TextField

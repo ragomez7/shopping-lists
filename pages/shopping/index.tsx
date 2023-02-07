@@ -32,6 +32,7 @@ const ShoppingDashboardPage = () => {
     const [ currentUI, setCurrentUI ] = useState<string>("ItemsList");
     const [ allLists, setAllLists ] = useState<object>({})
     useEffect(() => {
+        document.title = "Shopper"
         async function fetchCategories() {
             const response = await fetch('http://localhost:3000/api/categories', {
                 headers: {
@@ -56,7 +57,10 @@ const ShoppingDashboardPage = () => {
             }
             setAllLists(lists);
         }
-        fetchAllListsAndCheckIfPendingListExistsElseCreateOne()
+        if (userIsViewingItem === false) {
+            fetchAllListsAndCheckIfPendingListExistsElseCreateOne()
+        }
+        
         if(document.location.toString().includes('redirectToHistory')) {
             setCurrentUI("ListHistory")
         }
@@ -75,9 +79,7 @@ const ShoppingDashboardPage = () => {
         currentUI,
         setCurrentUI,
         isEditingItemQty,
-        setIsEditingItemQty
-        // userIsManagingItemInShoppingList,
-        // setUserIsManagingItemInShoppingList        
+        setIsEditingItemQty   
     }
     return (
         <ShoppingDashboardContext.Provider value={contextObject}>

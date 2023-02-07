@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Layout from "../components/Layout";
 import { Button } from "@mui/material";
@@ -7,6 +7,9 @@ import { Box } from "@mui/material";
 
 const Index = () => {
   const { data: session } = useSession();
+  useEffect(() => {
+    document.location.href = "http://localhost:3000/shopping"
+  }, [])
   return (
     <Layout>
       <Box
