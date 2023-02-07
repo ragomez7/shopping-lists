@@ -7,7 +7,7 @@ import { ListCategoryContext } from '../../..';
 const AddOneUnitButton = ({ itemName, innerCountTally, setInnerCountTally }) => {
     const handleAddOneUnitButtonOnClick = async () => {
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`, {
+            const response = await fetch(`/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`, {
                 method: 'POST'
             });
             const json = await response.json();

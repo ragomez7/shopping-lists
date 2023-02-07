@@ -34,7 +34,7 @@ const ShoppingDashboardPage = () => {
     useEffect(() => {
         document.title = "Shopper"
         async function fetchCategories() {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/categories`, {
+            const response = await fetch(`/api/categories`, {
                 headers: {
                     'Accept': "application/json"
                 }
@@ -45,13 +45,13 @@ const ShoppingDashboardPage = () => {
         fetchCategories()
 
         async function fetchAllListsAndCheckIfPendingListExistsElseCreateOne() {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/lists`);
+            const response = await fetch(`/api/lists`);
             const lists = await response.json();
             const pendingList = lists?.length ? [...lists].find((list) => list.status === 'pending') : [];
             if (pendingList) {
                 setCurrentShoppingList(pendingList);
             } else {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/lists?name=Shopping List`);
+                const response = await fetch(`/api/lists?name=Shopping List`);
                 const newList = await response.json();
                 setCurrentShoppingList(newList);
             }

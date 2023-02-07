@@ -11,7 +11,7 @@ const HistoryMenuItem = () => {
     const handleHistoryButtonClick = () => {
         if (setCurrentUI) setCurrentUI("ListHistory")
         else {
-            document.location.href = `${process.env.NEXT_PUBLIC_URL}/shopping?redirectToHistory=true`
+            document.location.href = `/shopping?redirectToHistory=true`
         }
     }
     return (
