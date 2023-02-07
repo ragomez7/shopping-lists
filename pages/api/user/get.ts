@@ -16,6 +16,5 @@ export default async function handle(req, res) {
       password: true,
     },
   });
-  console.log({result});
   res.json(result ? result : {});
 }

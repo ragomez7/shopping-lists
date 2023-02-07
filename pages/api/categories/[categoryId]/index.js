@@ -40,7 +40,6 @@ export default async function handle(req, res) {
             })
             res.status(201).json(createdCategory)
         } catch (err) {
-            console.log(err)
             res.status(400).send(err)
         }
     } else if (req.method === 'PATCH') {

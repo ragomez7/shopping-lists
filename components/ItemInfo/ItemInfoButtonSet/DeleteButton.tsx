@@ -34,11 +34,9 @@ const DeleteButton = () => {
             }
             
         };
-        console.log('1')
         await deleteItemFromList();
         await deleteItemFromCategory();
         setUserIsViewingItem(false);
-        console.log('2')
     }
     return (
             <Button

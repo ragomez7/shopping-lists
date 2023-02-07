@@ -48,7 +48,6 @@ const UploadPhotoDialog: FunctionComponent<UploadPhotoDialogProps> = ({
   });
 
   const handleChangeProfilePhoto = (event: any) => {
-    console.log(event.target.files[0]);
     const updatedImgURLString = URL.createObjectURL(event.target.files[0]);
     setSelectedImage(updatedImgURLString);
   };
@@ -64,12 +63,11 @@ const UploadPhotoDialog: FunctionComponent<UploadPhotoDialogProps> = ({
         setProfileImage(uploadedImage.url);
         updateData();
       })
-      .catch(() => {
-        console.log("Error");
+      .catch((err) => {
+        console.log(err);
       });
   };
 
-  console.log(selectedImage);
 
   return (
     <Dialog

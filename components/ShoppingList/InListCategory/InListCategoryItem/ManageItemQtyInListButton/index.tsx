@@ -8,10 +8,7 @@ const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemNa
     useEffect(() => {
         const shoppingListElem = document.getElementById('shopping-list')
         shoppingListElem?.addEventListener('click', (e) => {
-            console.log("click detected")
-            console.log(`isEditing? ${isEditingItemQty}`)
             if (isEditingItemQty && !document?.getElementById('item-qty-controller')?.contains(e.target)) {
-                console.log(true)
                 setIsEditingItemQty(false)
             }
         })

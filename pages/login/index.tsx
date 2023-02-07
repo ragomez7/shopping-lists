@@ -46,7 +46,6 @@ interface SignInProps {
 const SignIn: React.FC<SignInProps> = ({ providers }) => {
   const theme: ThemeOptions = useTheme();
   const { isLight } = useContext(ModeContext);
-  console.log(providers)
 
   return (
     <Layout>

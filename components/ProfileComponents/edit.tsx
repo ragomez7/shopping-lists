@@ -80,8 +80,6 @@ const ProfileEditPage: React.FC<ProfileEditPageProps> = ({
         password: profilePassword,
         image: profileImage,
       }))
-      console.log(`about to upload
-      ${body.profileImage}`)
       await fetch("/api/user/update", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

@@ -34,10 +34,8 @@ export default async function handle(req, res) {
         const { name } = req.query;
         try {
             const createdList = await List.create({ name });
-            console.log(createdList)
             res.status(201).json(createdList)
         } catch (err) {
-            console.log(err)
             res.status(400).send(err)
         }
     } else if (req.method === 'PATCH') {

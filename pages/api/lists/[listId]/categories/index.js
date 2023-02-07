@@ -83,14 +83,11 @@ export default async function handle(req, res) {
                 createdAt,
                 updatedAt
             }
-            console.log(itemToInsert)
             const updatedList = await List.findOneAndUpdate(
                 { _id: listId, "categories._id": categoryId },
                 { $push: { "categories.$.items": itemToInsert } },
                 { new: true }
             );
-            // updatedList.categories.items.push(itemToInsert)
-            // console.log(updatedList);
             res.status(200).send(updatedList);
         } catch (err) {
             res.status(400).send(err)
@@ -104,7 +101,6 @@ export default async function handle(req, res) {
                     { _id: listId, "categories.items._id": itemId },
                     { $pull: { "categories.$.items": { _id: itemId } } },
                     { new: true });
-                console.log(updatedList)
                 res.status(200).send(updatedList);
             } else {
                 if (deleteAllInstances) {
@@ -112,7 +108,6 @@ export default async function handle(req, res) {
                         { _id: listId, "categories.items.name": itemName },
                         { $pull: { "categories.$.items": { name: itemName } } },
                         { new: true });
-                    console.log(updatedList)
                     res.status(200).send(updatedList);
                 } else {
                     const firstInstanceOfItemName = await List.findOne(
@@ -122,7 +117,6 @@ export default async function handle(req, res) {
                         if (category._id.toString() === categoryId) {
                             let idx = 0;
                             for (const item of category.items) {
-                                console.log(item.name)
                                 if (item.name === itemName) {
                                     category.items.splice(idx, 1)
                                     break;

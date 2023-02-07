@@ -11,7 +11,6 @@ export class ItemNotFoundError extends Error {
 export default async function handle(req, res) {
     if (req.method === 'GET') {
         const { itemId } = req.query;
-        console.log(itemId)
         const itemExists = itemId;
         if (itemExists) {
             try {
@@ -35,7 +34,6 @@ export default async function handle(req, res) {
 
     } else if (req.method === 'POST') {
         const { name, note, imageUrl, category } = req.query;
-        console.log(name, note, imageUrl, category)
         try {
             const createdItem = await Item.create({
                 name,
@@ -45,7 +43,6 @@ export default async function handle(req, res) {
             })
             res.status(201).json(createdItem)
         } catch (err) {
-            console.log(err)
             res.status(400).send(err)
         }
     } else if (req.method === 'PATCH') {

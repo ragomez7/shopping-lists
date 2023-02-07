@@ -9,11 +9,9 @@ interface CategorySelectProps {
     setSelectedCategory: (val: any) => void
 }
 const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelectedCategory }) => {
-    console.log(categories)
     const categoriesOptionsArray = categories.map((category) => {
         return { name: category.name, _id: category._id }
     })
-    console.log(categoriesOptionsArray)
     return (
         <>
             <Typography

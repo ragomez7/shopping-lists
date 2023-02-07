@@ -34,7 +34,6 @@ const handler = async (req: any, res: any) => {
   try {
     await runMiddleware(req, res, singleUpload)
   } catch (e) {
-    console.log("there was an error");
     return res.status(500).json({ title: "Upload Error", detail: e.message });
   }
   
@@ -45,7 +44,6 @@ const handler = async (req: any, res: any) => {
     }
     const file64 = formatBufferTo64(req.file);
     const uploadResult = await cloudinaryUpload(file64.content);
-    console.log(uploadResult);
 
     return res.json({
       cloudinaryId: uploadResult.public_id,

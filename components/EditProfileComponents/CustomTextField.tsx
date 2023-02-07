@@ -88,10 +88,8 @@ const CustomTextField: FunctionComponent<CustomTextFieldProps> = ({
   }, [editNameDisabled]);
 
   useEffect(() => {
-    console.log(editNameDisabled);
     if (editNameDisabled) {
       updateData();
-      console.log(editNameDisabled);
     }
   }, [editNameDisabled]);
 

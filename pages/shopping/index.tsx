@@ -39,7 +39,6 @@ const ShoppingDashboardPage = () => {
                 }
             });
             const categories = await response.json();
-            console.log(categories)
             setCategories(categories);
         }
         fetchCategories()

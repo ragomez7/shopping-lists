@@ -25,7 +25,6 @@ const ProfileCardRow: FunctionComponent<ProfileCardRowProps> = ({
   const { isLight } = useContext(ModeContext)
   useEffect(() => {
     setProfileImage(image);
-    console.log(`setProfileImage ${image}`)
   }, [image]);
 
   return (

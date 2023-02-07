@@ -46,7 +46,6 @@ export default async function handle(req, res) {
 
     } else if (req.method === 'POST') {
         const { categoryId, name, note, imageUrl } = req.query;
-        console.log(name, note, imageUrl)
         try {
             const newItem = {
                 name,
@@ -62,7 +61,6 @@ export default async function handle(req, res) {
             }
             res.status(200).send(updatedCategory);
         } catch (err) {
-            console.log(err.name)
             if (err.name === 'CategoryNotFoundError') res.status(404).send(err.message);
             else res.status(400).send(err);
         }
@@ -90,7 +88,6 @@ export default async function handle(req, res) {
             );
             res.status(200).send(updatedCategory);
         } catch (err) {
-            console.log(err)
             if (err.name === 'CategoryNotFoundError') res.status(404).send(err.message);
             else res.status(400).send(err);
         }
@@ -107,7 +104,6 @@ export default async function handle(req, res) {
             }
             res.status(200).send(updatedCategory);
         } catch (err) {
-            console.log(err.name)
             if (err.name === 'CategoryNotFoundError') res.status(404).send(err.message);
             else res.status(400).send(err);
         }

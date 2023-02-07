@@ -22,20 +22,17 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
         async function addItemToExistingCategory() {
             const categoryToAddItemTo = categories.find((category) => category.name.toLowerCase() === selectedCategory.toLowerCase());
             const { _id: categoryId } = categoryToAddItemTo;
-            // console.log(`http://localhost:3000/api/categories/${categoryId}/items?name=${name}&note=${note}&imageUrl=${url}`)
             await fetch(`http://localhost:3000/api/categories/${categoryId}/items?name=${name}&note=${note}&imageUrl=${url}`, {
                 method: 'POST'
             })
             setUserIsAddingNewItem(false)
         }
         async function addItemToNewCategory() {
-            console.log(`http://localhost:3000/api/categories?name=${selectedCategory}`)
             const addNewCategoryResponse = await fetch(`http://localhost:3000/api/categories?name=${selectedCategory}`, {
                 method: 'POST'
             })
             const json = await addNewCategoryResponse.json();
             const categoryId = json._id;
-            console.log(categoryId)
             await fetch(`http://localhost:3000/api/categories/${categoryId}/items?name=${name}&note?=${note}&imageUrl=${url}`, {
                 method: 'POST'
             })
