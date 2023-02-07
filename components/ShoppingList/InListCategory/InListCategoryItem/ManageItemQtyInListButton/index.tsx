@@ -88,7 +88,7 @@ const ManageItemQtyInListButton = ({ count, itemName }) => {
                         textTransform: 'none'
                     }}
                 >
-                    {count} pcs
+                    {innerCountTally} pcs
                 </Button>
             }
         </>

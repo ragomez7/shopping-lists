@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon'
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import Tooltip from '@mui/material/Tooltip';
+import { ShoppingDashboardContext } from '../../../pages/shopping';
 
 const ListMenuItem = () => {
+    const { setCurrentUI } = useContext(ShoppingDashboardContext);
     return (
         <Box
             sx={{
@@ -17,6 +20,7 @@ const ListMenuItem = () => {
         >
             <Tooltip title="Items" placement="right" >
                 <IconButton
+                    onClick={() => setCurrentUI("ItemsList")}
                     sx={{
                         padding: 0,
                         height: '18.5px',

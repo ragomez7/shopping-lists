@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon'
 import ReplayIcon from '@mui/icons-material/Replay';
 import Tooltip from '@mui/material/Tooltip';
+import { ShoppingDashboardContext } from '../../../pages/shopping';
 
 const HistoryMenuItem = () => {
+    const { setCurrentUI } = useContext(ShoppingDashboardContext);
     return (
         <Box
             sx={{
@@ -17,6 +20,7 @@ const HistoryMenuItem = () => {
         >
             <Tooltip title="History" placement="right" >
                 <IconButton
+                    onClick={() => setCurrentUI("ListHistory")}
                     sx={{
                         padding: 0,
                         height: '18.5px',
