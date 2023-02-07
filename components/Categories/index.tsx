@@ -5,13 +5,13 @@ import CategoryItemList from "./CategoryItemList";
 
 export interface CategoryItemProps {
     _id?: string
-    name: string
+    name?: string
     categoryName?: string
     categoryId?: string
     note?: string
     imageUrl?: string
-    firstOfLine: boolean
-    belongsToFirstLine: boolean
+    firstOfLine?: boolean
+    belongsToFirstLine?: boolean
 }
 
 interface TryProps {

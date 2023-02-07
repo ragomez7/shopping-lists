@@ -1,4 +1,5 @@
-import Box from '@mui/material/Box'
+import React from 'react';
+import Box from '@mui/material/Box';
 import HistoryMenuItem from './HistoryMenuItem';
 import ListMenuItem from './ListMenuItem';
 import StatisticsMenuItem from './StatisticsMenuItem';

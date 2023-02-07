@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box } from "@mui/material"
 import { useState, FC, useContext } from "react";
 import { ShoppingDashboardContext } from "../../pages/shopping";

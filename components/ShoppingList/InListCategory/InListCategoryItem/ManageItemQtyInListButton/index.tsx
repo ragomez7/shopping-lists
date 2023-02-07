@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { ShoppingDashboardContext } from '../../../../../pages/shopping';
 import ItemCountTallyButton from './ItemCountTallyButton';
 import ManageItemQtyController from './ManageItemQtyController';

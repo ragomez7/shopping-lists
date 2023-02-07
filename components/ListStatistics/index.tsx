@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import Box from '@mui/material/Box'
 import ShoppingList from '../ShoppingList';
 import { ShoppingDashboardContext } from '../../pages/shopping';

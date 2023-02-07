@@ -3,15 +3,20 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Typography } from '@mui/material';
+import { CategoryItemProps } from '../Categories';
 
 interface CategorySelectProps {
-    categories: Array<object>
+    categories: Array<CategoryItemProps>
     setSelectedCategory: (val: any) => void
 }
 const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelectedCategory }) => {
-    const categoriesOptionsArray = categories.map((category) => {
-        return { name: category.name, _id: category._id }
-    })
+    // const categoriesOptionsArray: CategoryItemProps[] = categories.map((category) => {
+    //     return { 
+    //         name: category.name, 
+    //         _id: category._id 
+    //     }
+    // })
+    const categoryNames: string[] = categories.map((category) => category.name);
     return (
         <>
             <Typography
@@ -35,9 +40,9 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelected
                     width: "310px",
                     marginTop: '7px'
                 }}
-                options={categoriesOptionsArray}
+                options={categories}
                 autoHighlight
-                getOptionLabel={(option) => option?.name}
+                getOptionLabel={(option) => (option.name?option.name:'')}
                 onInputChange={(e) => {
                     setSelectedCategory(e.target.innerText || e.target.value)
                 }}
