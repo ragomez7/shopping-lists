@@ -4,7 +4,6 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import { ModeContext } from "../pages/_app";
 import SideBar from "./Sidebar";
-import Header from "./Header";
 
 type Props = {
   children: ReactNode;

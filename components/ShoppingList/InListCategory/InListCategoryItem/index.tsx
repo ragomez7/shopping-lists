@@ -1,4 +1,4 @@
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import ManageItemQtyInListButton from "./ManageItemQtyInListButton";
 
 const InListCategoryItem = ({ name, count, isInEditingMode }) => {

@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { SvgIcon } from '@mui/material';
 import Badge from '@mui/material/Badge';

@@ -1,4 +1,4 @@
-import { Box, Button, Icon, Typography } from "@mui/material"
+import { Box, Icon, Typography } from "@mui/material"
 import AddItemButton from "./AddItemButton";
 
 const AddItemBox = () => {

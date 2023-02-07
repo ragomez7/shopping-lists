@@ -1,18 +1,8 @@
 import { useState, useEffect, createContext } from 'react'
-import { TextField } from "@mui/material";
-import { Typography } from "@mui/material";
-import { Box, Button } from "@mui/material"
-import { v4 as uuid } from 'uuid';
-import Category from '../../components/Categories';
-import ShoppingList from '../../components/ShoppingList';
-import AddNewItemForm from '../../components/AddNewItemForm.tsx';
-import ItemInfo from '../../components/ItemInfo';
-import SideBar from '../../components/Sidebar';
 import ItemsList from '../../components/ItemsList';
 import ListHistory from '../../components/ListHistory';
 import ListStatistics from '../../components/ListStatistics';
 import Layout from '../../components/Layout';
-
 
 interface IShoppingDashboardContext {
     userIsAddingNewItem?: boolean

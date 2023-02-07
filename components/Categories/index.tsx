@@ -1,8 +1,5 @@
-import { Typography } from "@mui/material";
 import React from "react";
-import { v4 as uuid } from 'uuid';
 import { Box } from "@mui/material"
-import CategoryItem from "./CategoryItem";
 import CategoryName from "./CategoryName";
 import CategoryItemList from "./CategoryItemList";
 

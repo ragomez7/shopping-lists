@@ -1,9 +1,6 @@
-import { useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Box from '@mui/material/Box'
 import { v4 as uuid } from 'uuid';
 import Layout from '../../components/Layout';
-import { ShoppingDashboardContext } from '.';
 import ShoppingList from '../../components/ShoppingList';
 
 const ListReview = ({ list, currentList }) => {
