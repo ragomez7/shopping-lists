@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import { grey } from "@mui/material/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import '../styles/globals.css'
+import "../styles/globals.css";
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -23,10 +22,10 @@ declare module "@mui/material/styles" {
     };
   }
   interface Palette {
-    white: Palette['primary']
+    white: Palette["primary"];
   }
   interface PaletteOptions {
-    white: PaletteOptions['primary']
+    white: PaletteOptions["primary"];
   }
 }
 
@@ -42,9 +41,9 @@ const theme = createTheme({
     //   main: '#FFFFFF'
     // },
     white: {
-      main: '#FFFFFF'
-    }
-  }
+      main: "#FFFFFF",
+    },
+  },
 });
 
 interface ModeContextProps {
@@ -60,13 +59,11 @@ const App = ({ Component, pageProps }: AppProps | any) => {
   const [isLight, setIsLight] = useState(true);
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <ThemeProvider theme={theme}>
-        <ModeContext.Provider value={{ isLight, setIsLight }}>
-          <Component {...pageProps} />
-        </ModeContext.Provider>
-      </ThemeProvider>
-    </SessionProvider>
+    <ThemeProvider theme={theme}>
+      <ModeContext.Provider value={{ isLight, setIsLight }}>
+        <Component {...pageProps} />
+      </ModeContext.Provider>
+    </ThemeProvider>
   );
 };
 
