@@ -4,7 +4,6 @@ import DatauriParser from "datauri/parser"
 const parser = new DatauriParser();
 
 import { v2 as cloudinary } from 'cloudinary';
-// const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
   cloud_name: "dg8htxonw",

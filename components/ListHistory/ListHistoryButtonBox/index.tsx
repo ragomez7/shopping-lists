@@ -21,7 +21,6 @@ const ListHistoryButtonBox: FC<ListHistoryButtonBoxProps> = ({ list, parsedDate 
             >
                 <Box
                     sx={{
-                        // width: '100%',
                         height: '63.5px',
                         borderRadius: '12px',
                         backgroundColor: '#FFF',

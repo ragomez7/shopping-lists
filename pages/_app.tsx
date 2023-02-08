@@ -37,9 +37,6 @@ const theme = createTheme({
     grey200: grey[200],
   },
   palette: {
-    // primary: {
-    //   main: '#FFFFFF'
-    // },
     white: {
       main: "#FFFFFF",
     },

@@ -56,10 +56,6 @@ export default async function handle(req, res) {
             else res.status(400).send(err);
         }
     } else if (req.method === 'PATCH') {
-        // elemMatch
-        // arrayFilters
-        // 
-        // 
         const { listId, categoryId, itemId } = req.query;
         try {
             const category = await Category.findById(categoryId);

@@ -103,12 +103,6 @@ const CustomTextField: FunctionComponent<CustomTextFieldProps> = ({
       <TextField
         onChange={onChange}
         value={value}
-        // sx={{
-        //   "& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled":
-        //     {
-        //       "-webkit-text-fill-color": isLight ? theme?.colors?.grey : "grey",
-        //     },
-        // }}
         InputProps={{
           disabled: editNameDisabled,
           inputRef: textInput,

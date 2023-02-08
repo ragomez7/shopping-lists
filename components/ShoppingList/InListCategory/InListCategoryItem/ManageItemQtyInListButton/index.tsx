@@ -16,7 +16,6 @@ const ManageItemQtyInListButton: FC<ManageQtyInListButtonProps> = ({ innerCountT
     const [isEditingItemQty, setIsEditingItemQty] = useState<boolean>(false);
     const controllerRef: NodeRef = useRef<NodeRef>(null);
     useEffect(() => {
-        console.log(isEditingItemQty)
         function listenForClicksOutsideController(e) {
             if (isEditingItemQty && controllerRef.current && !controllerRef.current?.contains(e.target)) {
                 setIsEditingItemQty(false)

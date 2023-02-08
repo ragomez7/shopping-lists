@@ -8,7 +8,6 @@ import { MutateItemQtytButtonProps } from './RemoveOneUnitButton';
 const AddOneUnitButton : FC<MutateItemQtytButtonProps>= ({ itemName, innerCountTally, setInnerCountTally }) => {
     const handleAddOneUnitButtonOnClick = async () => {
         try {
-            console.log(`https://shopping-lists-api.herokuapp.com/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`)
             const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`, {
                 method: 'POST'
             });

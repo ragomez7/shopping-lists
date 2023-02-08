@@ -58,7 +58,6 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelected
                 }
                 renderInput={(params) => (
                     <TextField
-                        // key={uuid()}
                         sx={{
                             height: '61.25px',
                             borderRadius: '12px',
