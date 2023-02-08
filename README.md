@@ -1,6 +1,6 @@
 # Shopper
 This is a demo app that allows the user to create, manage, and view shopping lists history.
-
+[Visit the app](https://shopping-lists-three.vercel.app/shopping)
 ## User stories
 * See a list of all items that can be added to a list.
 * Review item information.
@@ -20,6 +20,7 @@ This is a demo app that allows the user to create, manage, and view shopping lis
 ### React.js
 * React was used for the UI and state management
 * Global state is managed using React Context
-
 ## MongoDB
 * MongoDB was used as a database system. A cluster is hosted on Atlas.
+## Vercel
+* The app is deployed on Vercel
