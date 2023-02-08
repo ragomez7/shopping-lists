@@ -1,26 +1,25 @@
-<p>Deployed with Vercel on rgrgrgprojects.com</p>
+# Shopper
+This is a demo app that allows the user to create, manage, and view shopping lists history.
 
-This is a simple (yet complete) app done to explore OAuth2.0 with Next.js' NextAuth libary and other tools. It's connected to a cloud Postgres db with Prisma.
+## User stories
+* See a list of all items that can be added to a list.
+* Review item information.
+* Add an item to the list from the current list of items to the list.
+* Remove an item completely from the app. (Removes item from current list too)
+* Add a new item to the app.
+* Directly manage the list. Add or remove an arbitrary item quantity.
+* View list history and view individual list history.
+* View statistics of items bought in the past
 
-<h3>Explored features</h3>
-<ul>
-  <li> React components </li>
-  <li> React hooks </li>
-  <li> React Context API </li>
-  <li> Custom theming </li>
-  <li> Typescript </li>
-  <li> Responsive apps for XS-XL screen sizes </li>
-  <li> Multiple ways of authentication: Email, Github, Google, Twitter </li>
-  <li> Gets user data with Next's useSWR </li>
-  <li> Styling demo with several libraries: TailwindCSS, styled-components </li>
-  <li> MaterialUI components </li>
-  <li> Cloud hosting pictures and db integration with cloudinary </li>
-  <li> Custom NextAuth login page </li>
-</ul>
+## Development and deployment
+### Next.js
+* The app was developed using the NextJs framework
+* Next.js native features like its dynamic routing, serer-side rendering, were explored.
+### TypeScript
+* The app was developed with TypeScript
+### React.js
+* React was used for the UI and state management
+* Global state is managed using React Context
 
-<h3>User stories</h3>
-<ul>
-  <li>The user can login and logout with multiple OAuth providers </li>
-  <li>The user can change his/her profile picture and any of the user's information. This change will persist on the deployed app </li>
- </ul>
-  
+## MongoDB
+* MongoDB was used as a database system. A cluster is hosted on Atlas.
