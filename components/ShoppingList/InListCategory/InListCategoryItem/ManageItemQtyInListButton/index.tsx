@@ -1,4 +1,5 @@
-import React, { useEffect, useContext, useState } from 'react';
+import { refType } from '@mui/utils';
+import React, { useEffect, useContext, useState, useRef } from 'react';
 import { ShoppingDashboardContext } from '../../../../../pages/shopping';
 import ItemCountTallyButton from './ItemCountTallyButton';
 import ManageItemQtyController from './ManageItemQtyController';
@@ -6,10 +7,11 @@ import ManageItemQtyController from './ManageItemQtyController';
 const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemName, controllerId }) => {
     const { hasEditedItemQty, setHasEditedItemQty } = useContext(ShoppingDashboardContext);
     const [isEditingItemQty, setIsEditingItemQty] = useState<boolean>(false);
-    console.log(isEditingItemQty)
+    const controllerRef = useRef(null);
     useEffect(() => {
+        console.log(isEditingItemQty)
         function listenForClicksOutsideController(e) {
-            if (isEditingItemQty && !document?.getElementById(`item-qty-controller-${controllerId}`)?.contains(e.target)) {
+            if (isEditingItemQty && controllerRef.current && !controllerRef.current?.contains(e.target)) {
                 setIsEditingItemQty(false)
                 setHasEditedItemQty(hasEditedItemQty + 1);
             }
@@ -19,11 +21,12 @@ const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemNa
         return () => {
             removeEventListener('click', listenForClicksOutsideController);
         }
-    }, [isEditingItemQty])
+    }, [controllerRef, isEditingItemQty])
     return (
         <>
             {isEditingItemQty ?
                 <ManageItemQtyController 
+                refForward={controllerRef}
                     itemName={itemName}
                     innerCountTally={innerCountTally}
                     setInnerCountTally={setInnerCountTally}
