@@ -40,14 +40,18 @@ const InListCategory = ({ category, isInEditingMode }) => {
             >
                 {category.name}
             </Typography>
-            {itemCountsArray?.map((item) => (
+            {itemCountsArray?.map((item) =>  {
+                const key = uuid();
+                return (
                 <InListCategoryItem
-                    key={uuid()}
+                    key={key}
                     name={item.name}
                     count={item.count}
                     isInEditingMode={isInEditingMode}
+                    controllerId={key}
                 />
-            ))}
+                )
+            })}
         </ListCategoryContext.Provider>
     )
 };

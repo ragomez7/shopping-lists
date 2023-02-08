@@ -134,7 +134,6 @@ export default async function handle(req, res) {
 
             }
 
-
         } catch (err) {
             res.status(400).send(err)
         }

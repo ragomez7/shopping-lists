@@ -4,10 +4,10 @@ import RemoveAllUnitsButton from './RemoveAllUnitsButton';
 import RemoveOneUnitButton from './RemoveOneUnitButton';
 import AddOneUnitButton from './AddOneUnitButton';
 import ItemCountTallyButton from '../ItemCountTallyButton';
-const ManageItemQtyController = ({ itemName, innerCountTally, setInnerCountTally, setIsEditingItemQty }) => {
+const ManageItemQtyController = ({ itemName, innerCountTally, setInnerCountTally, setIsEditingItemQty, controllerId }) => {
     return (
         <Box
-            id="item-qty-controller"
+            id={`item-qty-controller-${controllerId}`}
             sx={{
                 width: '174px',
                 height: '45px',

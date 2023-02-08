@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Typography, Box } from "@mui/material";
 import ManageItemQtyInListButton from "./ManageItemQtyInListButton";
 
-const InListCategoryItem = ({ name, count, isInEditingMode }) => {
+const InListCategoryItem = ({ name, count, isInEditingMode, controllerId }) => {
     const [innerCountTally, setInnerCountTally] = useState(count);
     return (
         <Box
@@ -34,6 +34,7 @@ const InListCategoryItem = ({ name, count, isInEditingMode }) => {
                     innerCountTally={innerCountTally} 
                     setInnerCountTally={setInnerCountTally}
                     itemName={name} 
+                    controllerId={controllerId}
                 /> :
                 <Typography
                     sx={{

@@ -23,18 +23,18 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
         async function addItemToExistingCategory() {
             const categoryToAddItemTo = categories.find((category) => category.name.toLowerCase() === selectedCategory.toLowerCase());
             const { _id: categoryId } = categoryToAddItemTo;
-            await fetch(`/api/categories/${categoryId}/items?name=${name}&note=${note}&imageUrl=${url}`, {
+            await fetch(`https://shopping-lists-api.herokuapp.com/api/categories/${categoryId}/items?name=${name}&note=${note}&imageUrl=${url}`, {
                 method: 'POST'
             })
             setUserIsAddingNewItem(false)
         }
         async function addItemToNewCategory() {
-            const addNewCategoryResponse = await fetch(`/api/categories?name=${selectedCategory}`, {
+            const addNewCategoryResponse = await fetch(`https://shopping-lists-api.herokuapp.com/api/categories?name=${selectedCategory}`, {
                 method: 'POST'
             })
             const json = await addNewCategoryResponse.json();
             const categoryId = json._id;
-            await fetch(`/api/categories/${categoryId}/items?name=${name}&note?=${note}&imageUrl=${url}`, {
+            await fetch(`https://shopping-lists-api.herokuapp.com/api/categories/${categoryId}/items?name=${name}&note?=${note}&imageUrl=${url}`, {
                 method: 'POST'
             })
             setUserIsAddingNewItem(false);

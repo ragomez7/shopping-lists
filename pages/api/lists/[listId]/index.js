@@ -40,13 +40,17 @@ export default async function handle(req, res) {
         }
     } else if (req.method === 'PATCH') {
         const { listId, status } = req.query;
-        const list = await List.findByIdAndUpdate(listId, {
-            status,
-            updatedAt: new Date()
-        }, {
-            returnDocument: 'after'
-        });
-        res.status(200).send(list);
+        try {
+            const list = await List.findByIdAndUpdate(listId, {
+                status,
+                updatedAt: new Date()
+            }, {
+                returnDocument: 'after'
+            });
+            res.status(200).send(list);
+        } catch (err) {
+            res.status(400).send(err)
+        }
     } else if (req.method === 'DELETE') {
         const { listId } = req.query;
         try {

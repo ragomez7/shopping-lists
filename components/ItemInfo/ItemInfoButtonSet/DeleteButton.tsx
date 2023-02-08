@@ -15,7 +15,7 @@ const DeleteButton = () => {
     const handleDeleteButtonOnClick = async () => {
         const deleteItemFromList = async () => {
             try {
-                const response = await fetch(`/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${name}&deleteAllInstances=true`, {
+                const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${name}&deleteAllInstances=true`, {
                     method: 'DELETE'
                 });
                 const json = await response.json();
@@ -26,7 +26,7 @@ const DeleteButton = () => {
         }
         const deleteItemFromCategory = async () => {
             try {
-                const response = await fetch(`/api/categories/${categoryId}/items?itemId=${_id}`, {
+                const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/categories/${categoryId}/items?itemId=${_id}`, {
                     method: 'DELETE'
                 })
                 const json = await response.json();
