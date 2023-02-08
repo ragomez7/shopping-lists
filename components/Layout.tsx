@@ -8,10 +8,14 @@ type Props = {
 
 const Layout: React.FC<Props> = (props) => {
   return (
-    <Box sx={{
-      height: '100%',
-      display: 'flex'
-  }} >
+    <Box 
+      className="Layout"
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: '94px auto',
+        gridTemplateRows: 'auto',
+      }} 
+    >
       <SideBar />
       {props.children}
   </Box>

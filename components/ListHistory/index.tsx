@@ -1,59 +1,55 @@
-import React, { useContext, FC } from 'react';
+import React, { useContext, FC, createContext } from 'react';
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import { v4 as uuid } from 'uuid';
 import ShoppingList, { ShoppingListProps } from '../ShoppingList';
 import { ShoppingDashboardContext } from '../../pages/shopping';
-import DateTitle from './DateTitle';
-import ListHistoryButtonBox from './ListHistoryButtonBox';
+import AllPastLists from './AllPastLists';
+import ListHistoryPageTitle from './ListHistoryPageTitle';
+import ListReview from './ListReview';
 
-interface ListHistoryProps{
-    lists:  Array<ShoppingListProps>
+interface ListHistoryProps {
+    lists: Array<ShoppingListProps>
 }
 
+export const ListHistoryContext = createContext(null);
 const ListHistory: FC<ListHistoryProps> = ({ lists }) => {
-    const { currentShoppingList } = useContext(ShoppingDashboardContext);
+    const { currentShoppingList,
+        isViewingListHistoryDetail,
+        setIsViewingListHistoryDetail,
+        listBeingViewedId,
+        setListBeingViewedId
+    
+    } = useContext(ShoppingDashboardContext);
+
+    const listHistoryContextObject: any = {
+        isViewingListHistoryDetail,
+        setIsViewingListHistoryDetail,
+        setListBeingViewedId
+    }
     return (
-        <>
-            <Box className="ListHistory"
-                sx={{
-                    width: '957px',
-                    backgroundColor: '#faf9fe',
-                    paddingLeft: "80.5px",
-                    paddingRight: "90px",
-                    paddingY: '28px'
-                }}
-            >
-                <Typography
+        <Box sx={{
+            display: 'grid',
+            gridTemplateColumns: 'auto 389px'
+        }} >
+            <ListHistoryContext.Provider value={listHistoryContextObject}>
+                {isViewingListHistoryDetail ? 
+                <ListReview listId={listBeingViewedId || ""} /> :
+                <Box className="ListHistory"
                     sx={{
-                        fontFamily: 'Quicksand',
-                        fontWeight: 700,
-                        fontSize: '26px',
-                        lineHeight: '32.5px',
-                        color: '#34333A',
-                        marginTop: '10px'
+                        backgroundColor: '#faf9fe',
+                        paddingLeft: "80.5px",
+                        paddingRight: "90px",
+                        paddingY: '28px'
                     }}
                 >
-                    Shopping History
-                </Typography>
-                {lists.length ? lists.map((list) => {
-                    const dayOfWeekToString = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-                    let parsedDate: Date | string = new Date(list.createdAt);
-                    parsedDate = `${dayOfWeekToString[parsedDate.getDay()]}  ${parsedDate.getDate() + 1}.${parsedDate.getMonth() + 1}.${parsedDate.getFullYear()}`
-                    return (
-                        <Box key={uuid()} >
-                            <DateTitle />
-                            <ListHistoryButtonBox 
-                                list={list}
-                                parsedDate={parsedDate}
-                                currentShoppingListId={currentShoppingList?._id}
-                            />
-                        </Box>
-                    )
-                }): undefined}
-            </Box>
+                    <ListHistoryPageTitle />
+                    <AllPastLists
+                        lists={lists}
+                        currentShoppingList={currentShoppingList}
+                    />
+                </Box>}
+            </ListHistoryContext.Provider>
             <ShoppingList currentShoppingList={currentShoppingList} />
-        </>
+        </Box>
     )
 }
 

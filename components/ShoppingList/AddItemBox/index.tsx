@@ -6,7 +6,8 @@ const AddItemBox = () => {
     return (
         <Box
             sx={{
-                width: '100%',
+                // width: '100%',
+                minWidth: '300px',
                 height: '130px',
                 borderRadius: '24px',
                 backgroundColor: "#80485B",

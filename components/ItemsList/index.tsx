@@ -19,10 +19,14 @@ const ItemsList = () => {
         currentShoppingList
     } = useContext(ShoppingDashboardContext);
     return (
-        <>
+        <Box
+            sx={{
+                display: 'grid',
+                gridTemplateColumns: 'auto 389px',
+            }}
+        >
             <Box className="ItemsList"
                 sx={{
-                    width: '957px',
                     backgroundColor: '#faf9fe',
                     paddingLeft: "80.5px",
                     paddingRight: "90px",
@@ -81,7 +85,7 @@ const ItemsList = () => {
                     <ItemInfo itemThatIsBeingViewed={itemThatIsBeingViewed} /> :
                     <ShoppingList currentShoppingList={currentShoppingList} />
             }
-        </>
+        </Box>
     )
 }
 

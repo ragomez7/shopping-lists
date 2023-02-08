@@ -7,12 +7,20 @@ import Tooltip from '@mui/material/Tooltip';
 import { ShoppingDashboardContext } from '../../../pages/shopping';
 
 const HistoryMenuItem = () => {
-    const { setCurrentUI } = useContext(ShoppingDashboardContext);
+    const { 
+        setCurrentUI,
+        isViewingListHistoryDetail,
+        setIsViewingListHistoryDetail,
+        setListBeingViewedId
+    } = useContext(ShoppingDashboardContext);
     const handleHistoryButtonClick = () => {
-        if (setCurrentUI) setCurrentUI("ListHistory")
-        else {
-            document.location.href = `/shopping?redirectToHistory=true`
+        if (isViewingListHistoryDetail) {
+            setIsViewingListHistoryDetail(false);
+            setListBeingViewedId("")
         }
+        if (setCurrentUI) {
+            setCurrentUI("ListHistory")
+        } 
     }
     return (
         <Box

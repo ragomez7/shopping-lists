@@ -22,6 +22,10 @@ interface IShoppingDashboardContext {
     setCurrentUI: (newState: string) => void
     hasEditedItemQty?: number
     setHasEditedItemQty: (newState: number) => void
+    isViewingListHistoryDetail?: boolean
+    setIsViewingListHistoryDetail: (newState: boolean) => void
+    listBeingViewedId?: string
+    setListBeingViewedId: (newState: string) => void
 }
 export const ShoppingDashboardContext = createContext<IShoppingDashboardContext>({
     setUserIsAddingNewItem: (newState: false) => { newState },
@@ -30,6 +34,8 @@ export const ShoppingDashboardContext = createContext<IShoppingDashboardContext>
     setSearchTerm: (newState: string) => { newState },
     setCurrentUI: (newState: string) => { newState },
     setHasEditedItemQty: (newState: number) => { newState },
+    setIsViewingListHistoryDetail: (newState: boolean) => { newState },
+    setListBeingViewedId: (newState: string) => { newState }
 
 });
 const ShoppingDashboardPage = () => {
@@ -49,6 +55,8 @@ const ShoppingDashboardPage = () => {
     const [hasEditedItemQty, setHasEditedItemQty] = useState<number>(0);
     const [ currentUI, setCurrentUI ] = useState<string>("ItemsList");
     const [ allLists, setAllLists ] = useState<Array<ShoppingListProps>>([])
+    const [isViewingListHistoryDetail, setIsViewingListHistoryDetail] = useState<boolean>(false);
+    const [listBeingViewedId, setListBeingViewedId] = useState<string>("");
     useEffect(() => {
         document.title = "Shopper"
         async function fetchCategories() {
@@ -66,10 +74,12 @@ const ShoppingDashboardPage = () => {
             const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists`);
             const lists = await response.json();
             const pendingList = lists?.length ? [...lists].find((list) => list.status === 'pending') : [];
-            if (pendingList) {
+            if (!pendingList?.length) {
                 setCurrentShoppingList(pendingList);
             } else {
-                const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists?name=Shopping List`);
+                const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists?name=Shopping List`, {
+                    method: 'POST'
+                });
                 const newList = await response.json();
                 setCurrentShoppingList(newList);
             }
@@ -97,7 +107,11 @@ const ShoppingDashboardPage = () => {
         currentUI,
         setCurrentUI,
         hasEditedItemQty,
-        setHasEditedItemQty  
+        setHasEditedItemQty,
+        isViewingListHistoryDetail,
+        setIsViewingListHistoryDetail,
+        listBeingViewedId,
+        setListBeingViewedId
     }
     return (
         <ShoppingDashboardContext.Provider value={contextObject}>

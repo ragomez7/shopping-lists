@@ -1,24 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import Box from '@mui/material/Box';
-import Link from 'next/link';
 import ListName from './ListName';
 import ListInfo from './ListInfo';
 import { ShoppingListProps } from '../../ShoppingList';
+import { ShoppingDashboardContext } from '../../../pages/shopping';
 interface ListHistoryButtonBoxProps {
     list: ShoppingListProps
     parsedDate: string
     currentShoppingListId?: string
 }
-const ListHistoryButtonBox: FC<ListHistoryButtonBoxProps> = ({ list, parsedDate, currentShoppingListId }) => {
+const ListHistoryButtonBox: FC<ListHistoryButtonBoxProps> = ({ list, parsedDate }) => {
+    const { setIsViewingListHistoryDetail, setListBeingViewedId } = useContext(ShoppingDashboardContext);
+    const handleButtonClick = () => {
+        setIsViewingListHistoryDetail(true)
+        setListBeingViewedId(list._id || "")
+    }
     return (
-        <Link href={{
-            pathname: `/shopping/${list._id}`,
-            query: `currentShoppingList=${currentShoppingListId}`
-        }}>
-            <button>
+            <button
+                onClick={handleButtonClick}
+            >
                 <Box
                     sx={{
-                        width: '812px',
+                        // width: '100%',
                         height: '63.5px',
                         borderRadius: '12px',
                         backgroundColor: '#FFF',
@@ -32,7 +35,6 @@ const ListHistoryButtonBox: FC<ListHistoryButtonBoxProps> = ({ list, parsedDate,
                     <ListInfo listStatus={list.status} parsedDate={parsedDate} />
                 </Box>
             </button>
-        </Link>
     )
 };
 

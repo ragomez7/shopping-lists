@@ -39,6 +39,7 @@ export default async function handle(req, res) {
             res.status(400).send(err)
         }
     } else if (req.method === 'PATCH') {
+        console.log('hey')
         const { listId, status } = req.query;
         try {
             const list = await List.findByIdAndUpdate(listId, {

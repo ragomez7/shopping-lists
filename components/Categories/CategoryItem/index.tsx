@@ -3,7 +3,6 @@ import { Typography, Box } from "@mui/material"
 import { CategoryItemProps } from "..";
 import ViewItemButton from "./ViewItemButton";
 
-
 const CategoryItem: React.FC<CategoryItemProps> = ({ 
     _id,
     name, 
@@ -11,8 +10,6 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
     categoryId,
     note,
     imageUrl,
-    firstOfLine, 
-    belongsToFirstLine,
     isListReviewCategory,
     count
 }) => {
@@ -24,8 +21,8 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 backgroundColor: '#FFF',
-                marginLeft: firstOfLine ? null : '20px',
-                marginTop: belongsToFirstLine ? '18px' : '46px',
+                marginRight: '40px',
+                marginTop: '30px',
                 paddingY: '13px',
                 paddingLeft: '16px',
                 paddingRight: '5px',

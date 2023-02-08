@@ -52,7 +52,7 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
             sx={{
                 width: '389px',
                 backgroundColor: '#faf9fe',
-                paddingLeft: '49px',
+                paddingX: '29px',
                 paddingTop: '35px'
             }}
         >

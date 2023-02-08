@@ -22,7 +22,6 @@ interface ShoppingListComponentProps {
 const ShoppingList: FC<ShoppingListComponentProps> = ({ currentShoppingList }) => {
     const [isInEditingMode, setIsInEditingMode] = useState<boolean>(false);
     return (
-
             <Box
                 id="shopping-list"
                 className="ShoppingList"
