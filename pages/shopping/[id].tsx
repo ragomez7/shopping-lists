@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import ShoppingList from '../../components/ShoppingList';
 import { List } from '../../mongodb/models';
 import { Button, Typography } from '@mui/material';
+import dbConnect from '../../lib/dbConnect';
 import Category from '../../components/Categories';
 
 const ListReview = ({ list, currentList }) => {
@@ -64,6 +65,7 @@ const ListReview = ({ list, currentList }) => {
 
 
 export async function getServerSideProps(context) {
+    await dbConnect();
     const { id } = context.params;
     let { currentShoppingList } = context.query;
     console.log('1')
