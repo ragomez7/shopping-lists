@@ -22,5 +22,6 @@ This is a demo app that allows the user to create, manage, and view shopping lis
 * Global state is managed using React Context
 ### MongoDB
 * MongoDB was used as a database system. A cluster is hosted on Atlas.
+* Mongoose was used to query the database.
 ### Vercel
 * The app is deployed on Vercel
