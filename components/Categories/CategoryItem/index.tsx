@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@mui/material"
+import { Typography, Box } from "@mui/material"
 import { CategoryItemProps } from "..";
 import ViewItemButton from "./ViewItemButton";
 
@@ -17,7 +17,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
     count
 }) => {
     return (
-        <Typography
+        <Box
             sx={{
                 width: '175px',
                 display: 'flex',
@@ -61,7 +61,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
                 imageUrl={imageUrl}
             />
             }
-        </Typography>
+        </Box>
     )
 };
 

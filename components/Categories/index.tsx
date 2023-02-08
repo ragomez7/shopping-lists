@@ -21,7 +21,8 @@ interface TryProps {
 }
 
 interface CategoryProps {
-    category: TryProps;
+    category: TryProps
+    isListReviewCategory: boolean
 }
 const Category: React.FC<CategoryProps> = ({ category, isListReviewCategory }) => {
     return (

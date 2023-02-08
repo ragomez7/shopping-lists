@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+import { v4 as uuid } from 'uuid';
 import ShoppingList from '../ShoppingList';
 import { ShoppingDashboardContext } from '../../pages/shopping';
 import DateTitle from './DateTitle';
@@ -36,14 +37,14 @@ const ListHistory = ({ lists }) => {
                     let parsedDate: Date | string = new Date(list.createdAt);
                     parsedDate = `${dayOfWeekToString[parsedDate.getDay()]}  ${parsedDate.getDate() + 1}.${parsedDate.getMonth() + 1}.${parsedDate.getFullYear()}`
                     return (
-                        <>
+                        <Box key={uuid()} >
                             <DateTitle />
                             <ListHistoryButtonBox 
                                 list={list}
                                 parsedDate={parsedDate}
                                 currentShoppingListId={currentShoppingList._id}
                             />
-                        </>
+                        </Box>
                     )
                 }): undefined}
             </Box>

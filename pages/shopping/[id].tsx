@@ -2,6 +2,9 @@ import Box from '@mui/material/Box'
 import { v4 as uuid } from 'uuid';
 import Layout from '../../components/Layout';
 import ShoppingList from '../../components/ShoppingList';
+import { List } from '../../mongodb/models';
+import { Button, Typography } from '@mui/material';
+import Category from '../../components/Categories';
 
 const ListReview = ({ list, currentList }) => {
     const { name, categories } = JSON.parse(list);
@@ -59,14 +62,17 @@ const ListReview = ({ list, currentList }) => {
     )
 };
 
-import { List } from '../../mongodb/models';
-import { Button, Typography } from '@mui/material';
-import Category from '../../components/Categories';
+
 export async function getServerSideProps(context) {
     const { id } = context.params;
     let { currentShoppingList } = context.query;
+    console.log('1')
     const list = JSON.stringify(await List.findById(id));
+    console.log('2')
+    console.log(list)
     const currentList = JSON.stringify(await List.findById(currentShoppingList));
+    console.log('3')
+    console.log(currentList)
     return {
         props: {
             list,
