@@ -8,6 +8,12 @@ import { ShoppingDashboardContext } from '../../../pages/shopping';
 
 const ListMenuItem = () => {
     const { setCurrentUI } = useContext(ShoppingDashboardContext);
+    const handleListButtonClick = () => {
+        if (setCurrentUI) setCurrentUI("ItemsList")
+        else {
+            document.location.href = '/shopping'
+        }
+    }
     return (
         <Box
             sx={{
@@ -20,7 +26,7 @@ const ListMenuItem = () => {
         >
             <Tooltip title="Items" placement="right" >
                 <IconButton
-                    onClick={() => setCurrentUI("ItemsList")}
+                    onClick={handleListButtonClick}
                     sx={{
                         padding: 0,
                         height: '18.5px',

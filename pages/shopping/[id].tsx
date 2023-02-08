@@ -68,13 +68,8 @@ export async function getServerSideProps(context) {
     await dbConnect();
     const { id } = context.params;
     let { currentShoppingList } = context.query;
-    console.log('1')
     const list = JSON.stringify(await List.findById(id));
-    console.log('2')
-    console.log(list)
     const currentList = JSON.stringify(await List.findById(currentShoppingList));
-    console.log('3')
-    console.log(currentList)
     return {
         props: {
             list,

@@ -30,7 +30,6 @@ const ShoppingDashboardPage = () => {
     const [itemThatIsBeingViewed, setItemThatIsBeingViewed] = useState<object>({});
     const [currentShoppingList, setCurrentShoppingList] = useState<object>({});
     const [ userIsViewingItem, setUserIsViewingItem ] = useState<boolean>(false);
-    // const [isEditingItemQty, setIsEditingItemQty] = useState(false);
     const [hasEditedItemQty, setHasEditedItemQty] = useState<number>(0);
     const [ currentUI, setCurrentUI ] = useState<string>("ItemsList");
     const [ allLists, setAllLists ] = useState<object>({})
