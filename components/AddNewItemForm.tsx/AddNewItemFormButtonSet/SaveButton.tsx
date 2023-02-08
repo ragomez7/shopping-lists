@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Button } from "@mui/material"
 
-const SaveButton = ({handleAddNewItemOnClick}) => {
+interface SaveButtonProps {
+    handleAddNewItemOnClick: () => void
+}
+const SaveButton: FC<SaveButtonProps> = ({handleAddNewItemOnClick}) => {
     return (
         <Button
             onClick={handleAddNewItemOnClick}

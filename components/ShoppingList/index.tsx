@@ -11,12 +11,12 @@ export interface ShoppingListProps {
     name?: string
     status?: string
     categories?: Array<CategoryProps>
-    createdAt?: string
+    createdAt: string
     updatedAt?: string
 }
 
 interface ShoppingListComponentProps {
-    currentShoppingList: ShoppingListProps
+    currentShoppingList?: ShoppingListProps
 }
 
 const ShoppingList: FC<ShoppingListComponentProps> = ({ currentShoppingList }) => {

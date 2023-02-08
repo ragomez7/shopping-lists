@@ -1,17 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, FC } from 'react';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon'
 import RemoveIcon from '@mui/icons-material/Remove';
 import { ListCategoryContext } from '../../..';
 import { ShoppingDashboardContext } from '../../../../../../pages/shopping';
 
-const RemoveOneUnitButton = ({ itemName, innerCountTally, setInnerCountTally }) => {
+export interface MutateItemQtytButtonProps {
+    itemName?: string
+    innerCountTally: number
+    setInnerCountTally: (newCount: number) => void
+}
+const RemoveOneUnitButton: FC<MutateItemQtytButtonProps> = ({ itemName, innerCountTally, setInnerCountTally }) => {
     const handleRemoveOneUnitButtonOnClick = async () => {
         try {
             const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${itemName}`, {
                 method: 'DELETE'
             });
-            const json = await response.json();
+            await response.json();
             setInnerCountTally(innerCountTally - 1);
         } catch (err) {
             console.log(err)
@@ -20,7 +25,7 @@ const RemoveOneUnitButton = ({ itemName, innerCountTally, setInnerCountTally }) 
     }
     const { categoryId } = useContext(ListCategoryContext);
     const { currentShoppingList } = useContext(ShoppingDashboardContext);
-    const { _id: listId } = currentShoppingList;
+    const listId = currentShoppingList?._id;
     return (
         <IconButton
             onClick={handleRemoveOneUnitButtonOnClick}

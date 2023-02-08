@@ -8,7 +8,9 @@ const BackButton = () => {
     const { setUserIsViewingItem, setItemThatIsBeingViewed } = useContext(ShoppingDashboardContext);
     const handleBackButtonOnClick = () => {
         setUserIsViewingItem(false);
-        setItemThatIsBeingViewed({});
+        setItemThatIsBeingViewed({
+            name: ""
+        });
     }
     return (
             <Button

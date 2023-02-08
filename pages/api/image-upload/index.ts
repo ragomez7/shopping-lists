@@ -3,7 +3,8 @@ import path from 'path'
 import DatauriParser from "datauri/parser"
 const parser = new DatauriParser();
 
-const cloudinary = require("cloudinary").v2;
+import { v2 as cloudinary } from 'cloudinary';
+// const cloudinary = require("cloudinary").v2;
 
 cloudinary.config({
   cloud_name: "dg8htxonw",

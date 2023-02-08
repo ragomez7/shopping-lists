@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
-const NameTextField = ({name, setName}) => {
+interface NameTextFieldProps {
+    name: string
+    setName: (newName: string) => void
+}
+const NameTextField: FC<NameTextFieldProps> = ({name, setName}) => {
     return (
         <>
             <Typography

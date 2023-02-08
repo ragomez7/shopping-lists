@@ -13,7 +13,7 @@ interface ProfilePageHeaderProps {
 const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
   setIsEditing
 }) => {
-  const handleClickEdit = (event: React.BaseSyntheticEvent): void => {
+  const handleClickEdit = (): void => {
     setIsEditing(true);
   };
   const isXs = useMediaQuery('(max-width: 360px)')

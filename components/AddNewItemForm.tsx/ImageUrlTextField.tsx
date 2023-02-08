@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
-const ImageUrlTextField = ({ url, setUrl }) => {
+interface ImageUrlTextFieldProps {
+    url: string
+    setUrl: (newUrl: string) => void
+}
+const ImageUrlTextField: FC<ImageUrlTextFieldProps> = ({ url, setUrl }) => {
     return (
         <>
             <Typography

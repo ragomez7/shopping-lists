@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Box } from "@mui/material"
 import CancelButton from "./CancelButton";
 import SaveButton from "./SaveButton";
 
-const AddNewItemFormButtonSet = ({handleAddNewItemOnClick}) => {
+interface AddNewItemFormButtonSetnProps {
+    handleAddNewItemOnClick: () => void
+}
+
+const AddNewItemFormButtonSet: FC<AddNewItemFormButtonSetnProps> = ({handleAddNewItemOnClick}) => {
     return (
         <Box
             sx={{

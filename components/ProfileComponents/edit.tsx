@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import Box from "@mui/material/Box";
-import { ThemeOptions } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import { ModeContext } from "../../pages/_app";
 import BackButton from "../EditProfileComponents/BackButton";
 import ChangePhotoComponent from "../EditProfileComponents/TailwindChangePhotoComponent";
@@ -54,11 +52,10 @@ const ProfileEditPage: React.FC<ProfileEditPageProps> = ({
     setPassword(event.target.value);
   };
 
-  const handleClickBack = (event: React.BaseSyntheticEvent): void => {
+  const handleClickBack = (): void => {
     setIsEditing(false);
   };
   const isXs = useMediaQuery("(max-width: 360px)");
-  const theme: ThemeOptions = useTheme();
   const { isLight } = useContext(ModeContext);
 
   const updateData = async () => {

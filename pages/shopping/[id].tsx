@@ -1,15 +1,21 @@
-import Box from '@mui/material/Box'
+import React, { FC } from 'react';
+import Box from '@mui/material/Box';
 import { v4 as uuid } from 'uuid';
 import Layout from '../../components/Layout';
-import ShoppingList from '../../components/ShoppingList';
+import ShoppingList, { ShoppingListProps } from '../../components/ShoppingList';
 import { List } from '../../mongodb/models';
 import { Button, Typography } from '@mui/material';
 import dbConnect from '../../lib/dbConnect';
 import Category from '../../components/Categories';
 
-const ListReview = ({ list, currentList }) => {
+interface ListReviewProps {
+    list: string
+    currentList: string
+}
+
+const ListReview: FC<ListReviewProps> = ({ list, currentList }) => {
     const { name, categories } = JSON.parse(list);
-    currentList = JSON.parse(currentList);
+    const currentShoppingList: ShoppingListProps = JSON.parse(currentList);
     return (
 
         <Layout>
@@ -57,7 +63,7 @@ const ListReview = ({ list, currentList }) => {
                     )
                 }) : undefined}
             </Box>
-            <ShoppingList currentShoppingList={currentList} />
+            <ShoppingList currentShoppingList={currentShoppingList} />
         </Layout>
 
     )
@@ -67,7 +73,7 @@ const ListReview = ({ list, currentList }) => {
 export async function getServerSideProps(context) {
     await dbConnect();
     const { id } = context.params;
-    let { currentShoppingList } = context.query;
+    const { currentShoppingList } = context.query;
     const list = JSON.stringify(await List.findById(id));
     const currentList = JSON.stringify(await List.findById(currentShoppingList));
     return {

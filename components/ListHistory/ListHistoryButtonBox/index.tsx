@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
 import ListName from './ListName';
 import ListInfo from './ListInfo';
-
-const ListHistoryButtonBox = ({ list, parsedDate, currentShoppingListId }) => {
+import { ShoppingListProps } from '../../ShoppingList';
+interface ListHistoryButtonBoxProps {
+    list: ShoppingListProps
+    parsedDate: string
+    currentShoppingListId?: string
+}
+const ListHistoryButtonBox: FC<ListHistoryButtonBoxProps> = ({ list, parsedDate, currentShoppingListId }) => {
     return (
         <Link href={{
             pathname: `/shopping/${list._id}`,

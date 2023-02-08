@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Typography, Box } from "@mui/material";
 import ManageItemQtyInListButton from "./ManageItemQtyInListButton";
 
-const InListCategoryItem = ({ name, count, isInEditingMode, controllerId }) => {
-    const [innerCountTally, setInnerCountTally] = useState(count);
+export interface InListCategoryItemProps {
+    name?: string
+    count?: number
+    isInEditingMode?: boolean
+    controllerId?: string
+}
+
+const InListCategoryItem: FC<InListCategoryItemProps> = ({ name, count, isInEditingMode, controllerId }) => {
+    const [innerCountTally, setInnerCountTally] = useState(count || 0);
     return (
         <Box
             sx={{

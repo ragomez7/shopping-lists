@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Typography from '@mui/material/Typography';
 
-const ItemNote = ({note}) => {
+interface ItemNoteProps {
+    note?: string
+}
+const ItemNote: FC<ItemNoteProps> = ({note}) => {
     return (
         <>
             <Typography

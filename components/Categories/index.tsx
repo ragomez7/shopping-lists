@@ -12,8 +12,8 @@ export interface CategoryItemProps extends ItemProps {
 }
 
 export interface CategoryProps {
-    name?: string;
-    items?: Array<CategoryItemProps>;
+    name: string;
+    items: Array<CategoryItemProps>;
     _id?: string;
 }
 

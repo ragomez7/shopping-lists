@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 
-const ItemImage = ({ imageUrl }) => {
+interface ItemImageProps {
+    imageUrl?: string
+}
+const ItemImage: FC<ItemImageProps> = ({ imageUrl }) => {
     return (
         <Box
             component="img"

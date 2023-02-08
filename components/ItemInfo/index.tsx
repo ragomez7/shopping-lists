@@ -9,18 +9,20 @@ import ItemImage from './ItemImage';
 
 export interface ItemProps {
     _id?: string
-    name?: string
+    name: string
     categoryName?: string
     categoryId?: string
     note?: string
     imageUrl?: string
 }
 export interface ItemInfoProps {
-    itemThatIsBeingViewed: ItemProps
+    itemThatIsBeingViewed?: ItemProps
 }
-export const ItemInfoContext = createContext<ItemProps>({})
+export const ItemInfoContext = createContext<ItemProps>({
+    name: ""
+})
 const ItemInfo: FC<ItemInfoProps> = ({ itemThatIsBeingViewed }) => {
-    const itemInfoContext = {
+    const itemInfoContext: any = {
         ...itemThatIsBeingViewed
     }
     return (
@@ -35,10 +37,10 @@ const ItemInfo: FC<ItemInfoProps> = ({ itemThatIsBeingViewed }) => {
                 }}
             >
                 <BackButton />
-                <ItemImage imageUrl={itemThatIsBeingViewed.imageUrl} />
-                <ItemName name={itemThatIsBeingViewed.name} />
-                <ItemCategory categoryName={itemThatIsBeingViewed.categoryName} />
-                <ItemNote note={itemThatIsBeingViewed.note} />
+                <ItemImage imageUrl={itemThatIsBeingViewed?.imageUrl} />
+                <ItemName name={itemThatIsBeingViewed?.name || ""} />
+                <ItemCategory categoryName={itemThatIsBeingViewed?.categoryName} />
+                <ItemNote note={itemThatIsBeingViewed?.note} />
                 <ItemInfoButtonSet />
             </Box>
         </ItemInfoContext.Provider>

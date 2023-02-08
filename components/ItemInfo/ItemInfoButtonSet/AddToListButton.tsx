@@ -9,11 +9,10 @@ const AddToListButton = () => {
     const { _id, categoryId } = useContext(ItemInfoContext);
     const handleAddToListButtonOnClick = async () => {
         const addItemToList = async () => {
-            console.log(`https://shopping-lists-api.herokuapp.com/api/lists/${currentShoppingList._id}/categories?categoryId=${categoryId}&itemId=${_id}`)
-            const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${currentShoppingList._id}/categories?categoryId=${categoryId}&itemId=${_id}`, {
+            const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${currentShoppingList?._id}/categories?categoryId=${categoryId}&itemId=${_id}`, {
                 method: "POST"
             })
-            const json = await response.json();
+            await response.json();
         } 
         await addItemToList();
         setUserIsViewingItem(false);

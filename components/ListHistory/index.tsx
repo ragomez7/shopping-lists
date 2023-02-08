@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, FC } from 'react';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { v4 as uuid } from 'uuid';
-import ShoppingList from '../ShoppingList';
+import ShoppingList, { ShoppingListProps } from '../ShoppingList';
 import { ShoppingDashboardContext } from '../../pages/shopping';
 import DateTitle from './DateTitle';
 import ListHistoryButtonBox from './ListHistoryButtonBox';
 
-const ListHistory = ({ lists }) => {
+interface ListHistoryProps{
+    lists:  Array<ShoppingListProps>
+}
+
+const ListHistory: FC<ListHistoryProps> = ({ lists }) => {
     const { currentShoppingList } = useContext(ShoppingDashboardContext);
     return (
         <>
@@ -42,7 +46,7 @@ const ListHistory = ({ lists }) => {
                             <ListHistoryButtonBox 
                                 list={list}
                                 parsedDate={parsedDate}
-                                currentShoppingListId={currentShoppingList._id}
+                                currentShoppingListId={currentShoppingList?._id}
                             />
                         </Box>
                     )

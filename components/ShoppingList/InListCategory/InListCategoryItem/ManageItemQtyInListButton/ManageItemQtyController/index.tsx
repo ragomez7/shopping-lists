@@ -1,10 +1,25 @@
-import React from 'react';
+import React,  { FC } from 'react';
 import Box from '@mui/material/Box';
 import RemoveAllUnitsButton from './RemoveAllUnitsButton';
 import RemoveOneUnitButton from './RemoveOneUnitButton';
 import AddOneUnitButton from './AddOneUnitButton';
 import ItemCountTallyButton from '../ItemCountTallyButton';
-const ManageItemQtyController = ({ refForward, itemName, innerCountTally, setInnerCountTally, setIsEditingItemQty, controllerId }) => {
+import { NodeRef } from '..';
+import { MutateItemQtytButtonProps } from './RemoveOneUnitButton';
+
+interface ManageItemQtyControllerProps extends MutateItemQtytButtonProps {
+    refForward: NodeRef
+    setIsEditingItemQty: (newVal: boolean) => void
+    controllerId?: string
+} 
+const ManageItemQtyController: FC<ManageItemQtyControllerProps>  = ({ 
+    refForward, 
+    itemName, 
+    innerCountTally, 
+    setInnerCountTally, 
+    setIsEditingItemQty, 
+    controllerId 
+}) => {
     return (
         <Box
             ref={refForward}

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Typography from '@mui/material/Typography';
 
-const ListStatus = ({ listStatus }) => {
+interface ListStatusProps {
+    listStatus?: string
+}
+const ListStatus: FC<ListStatusProps> = ({ listStatus }) => {
     return (
         <Typography
             sx={{

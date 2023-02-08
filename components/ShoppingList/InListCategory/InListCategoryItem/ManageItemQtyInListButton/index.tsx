@@ -1,13 +1,17 @@
-import { refType } from '@mui/utils';
-import React, { useEffect, useContext, useState, useRef } from 'react';
+import React, { useEffect, useContext, useState, useRef, FC } from 'react';
 import { ShoppingDashboardContext } from '../../../../../pages/shopping';
 import ItemCountTallyButton from './ItemCountTallyButton';
 import ManageItemQtyController from './ManageItemQtyController';
-
-interface NodeRef {
+import { MutateItemQtytButtonProps } from './ManageItemQtyController/RemoveOneUnitButton';
+export interface NodeRef {
     current: any
 }
-const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemName, controllerId }) => {
+
+export interface ManageQtyInListButtonProps extends MutateItemQtytButtonProps {
+    controllerId?: string
+}
+
+const ManageItemQtyInListButton: FC<ManageQtyInListButtonProps> = ({ innerCountTally, setInnerCountTally, itemName, controllerId }) => {
     const { hasEditedItemQty, setHasEditedItemQty } = useContext(ShoppingDashboardContext);
     const [isEditingItemQty, setIsEditingItemQty] = useState<boolean>(false);
     const controllerRef: NodeRef = useRef<NodeRef>(null);
@@ -16,7 +20,7 @@ const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemNa
         function listenForClicksOutsideController(e) {
             if (isEditingItemQty && controllerRef.current && !controllerRef.current?.contains(e.target)) {
                 setIsEditingItemQty(false)
-                setHasEditedItemQty(hasEditedItemQty + 1);
+                setHasEditedItemQty(hasEditedItemQty ? hasEditedItemQty + 1 : 1);
             }
         }
         const shoppingListElem = document.getElementById('shopping-list')
@@ -29,7 +33,7 @@ const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemNa
         <>
             {isEditingItemQty ?
                 <ManageItemQtyController 
-                refForward={controllerRef}
+                    refForward={controllerRef}
                     itemName={itemName}
                     innerCountTally={innerCountTally}
                     setInnerCountTally={setInnerCountTally}

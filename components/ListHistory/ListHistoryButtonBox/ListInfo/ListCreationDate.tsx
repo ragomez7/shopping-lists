@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Typography from '@mui/material/Typography';
 import SvgIcon from '@mui/material/SvgIcon';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
-const ListCreationDate = ({ parsedDate }) => {
+interface ListCreationDateProps {
+    parsedDate: string
+}
+const ListCreationDate: FC<ListCreationDateProps> = ({ parsedDate }) => {
     return (
         <>
             <SvgIcon

@@ -2,14 +2,6 @@ import { Category, List } from "../../../../../mongodb/models";
 import { ListNotFoundError } from "../..";
 import { CategoryNotFoundError } from "../../../categories";
 
-class CategoryAlreadyInListError extends Error {
-    constructor() {
-        super();
-        this.name = "CategoryAlreadyInListError";
-        this.message = "Category already exists in list. Patch this list instead."
-    }
-}
-
 export default async function handle(req, res) {
     if (req.method === 'GET') {
         const { listId } = req.query;
@@ -60,7 +52,7 @@ export default async function handle(req, res) {
             }
 
         } catch (err) {
-            if (err.name === 'CategoryNotFoundError' || "CategoryAlreadyInListError") res.status(404).send(err.message);
+            if (err.name === 'CategoryNotFoundError') res.status(404).send(err.message);
             else res.status(400).send(err);
         }
     } else if (req.method === 'PATCH') {

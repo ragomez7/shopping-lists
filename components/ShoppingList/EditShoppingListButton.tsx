@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import IconButton from '@mui/material/IconButton';
 import SvgIcon from '@mui/material/SvgIcon';
 import EditIcon from "@mui/icons-material/Edit";
 
-const EditShoppingListButton = ({isInEditingMode, setIsInEditingMode}) => {
+interface EditShoppingListButtonProps {
+    isInEditingMode: boolean
+    setIsInEditingMode: (newBool: boolean) => void
+}
+const EditShoppingListButton: FC<EditShoppingListButtonProps> = ({isInEditingMode, setIsInEditingMode}) => {
     return (
         <IconButton
             onClick={() => setIsInEditingMode(!isInEditingMode)}

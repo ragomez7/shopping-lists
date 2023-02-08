@@ -11,14 +11,14 @@ const DeleteButton = () => {
         categoryId
     } = useContext(ItemInfoContext);
     const { setUserIsViewingItem, currentShoppingList } = useContext(ShoppingDashboardContext);
-    const { _id: listId } = currentShoppingList;
+    const listId = currentShoppingList?._id
     const handleDeleteButtonOnClick = async () => {
         const deleteItemFromList = async () => {
             try {
                 const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${name}&deleteAllInstances=true`, {
                     method: 'DELETE'
                 });
-                const json = await response.json();
+                await response.json();
             } catch (err) {
                 console.log(err)
             }
@@ -29,7 +29,7 @@ const DeleteButton = () => {
                 const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/categories/${categoryId}/items?itemId=${_id}`, {
                     method: 'DELETE'
                 })
-                const json = await response.json();
+                await response.json();
             } catch (err) {
                 console.log(err)
             }

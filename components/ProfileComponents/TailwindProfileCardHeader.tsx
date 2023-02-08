@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { ThemeOptions } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import EditButton from "./EditButton";
 import { ModeContext } from "../../pages/_app";
 import { useMediaQuery } from "usehooks-ts";
@@ -13,11 +11,10 @@ interface ProfilePageHeaderProps {
 const ProfilePageHeader: React.FC<ProfilePageHeaderProps> = ({
   setIsEditing,
 }) => {
-  const handleClickEdit = (event: React.BaseSyntheticEvent): void => {
+  const handleClickEdit = (): void => {
     setIsEditing(true);
   };
   const isXs = useMediaQuery("(max-width: 360px)");
-  const theme: ThemeOptions = useTheme();
   const { isLight } = useContext(ModeContext);
   return (
     <Box

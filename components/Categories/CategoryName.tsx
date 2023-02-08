@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from "@mui/material";
 
-const CategoryName = ({ name }) => {
+interface CategoryNameProps {
+    name: string
+}
+const CategoryName: FC<CategoryNameProps> = ({ name }) => {
     return (
         <Typography
             sx={{

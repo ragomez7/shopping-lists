@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import ArrowForwardIcon from './ArrowForwardIcon';
 import ListStatus from './ListStatus';
 import ListCreationDate from './ListCreationDate';
 
-const ListInfo = ( {listStatus, parsedDate} ) => {
+interface ListInfoProps {
+    listStatus?: string
+    parsedDate: string
+}
+const ListInfo: FC<ListInfoProps> = ( {listStatus, parsedDate} ) => {
     return (
         <Box
             sx={{

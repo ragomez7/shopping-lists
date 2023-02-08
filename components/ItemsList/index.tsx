@@ -67,7 +67,7 @@ const ItemsList = () => {
                     />
                 </Box>
 
-                {categories.length ? categories.map((category) => (
+                {categories?.length ? categories.map((category) => (
                     <Category
                         key={uuid()}
                         category={category}

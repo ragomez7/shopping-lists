@@ -1,8 +1,5 @@
-import React, { ReactNode, useContext } from "react";
-import { ThemeOptions } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import React, { ReactNode } from "react";
 import Box from "@mui/material/Box";
-import { ModeContext } from "../pages/_app";
 import SideBar from "./Sidebar";
 
 type Props = {
@@ -10,8 +7,6 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = (props) => {
-  const theme: ThemeOptions = useTheme();
-  const { isLight } = useContext(ModeContext);
   return (
     <Box sx={{
       height: '100%',

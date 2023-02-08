@@ -3,6 +3,6 @@ module.exports = {
         // ignoreBuildErrors: true
     },
     eslint: {
-        ignoreDuringBuilds: true
+        // ignoreDuringBuilds: true
     }
 }

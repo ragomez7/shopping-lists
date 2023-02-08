@@ -1,10 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import { v4 as uuid } from 'uuid';
 import { Box } from "@mui/material"
 import CategoryItem from "./CategoryItem";
-import { CategoryItemProps } from ".";
+import { CategoryProps, CategoryItemProps } from ".";
 
-const CategoryItemList = ({ category, isListReviewCategory }) => {
+interface CategoryItemListProps {
+    category: CategoryProps
+    isListReviewCategory?: boolean
+}
+const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCategory }) => {
     if (isListReviewCategory) {
         const categoryItemCount = {};
         const seenItems = new Set();
@@ -15,7 +19,7 @@ const CategoryItemList = ({ category, isListReviewCategory }) => {
                 categoryItemCount[item.name] = 1;
                 seenItems.add(item.name)
             }
-        };
+        }
         const itemCountsArray: Array<CategoryItemProps> = [];
         for (const [itemName, itemCount] of Object.entries(categoryItemCount)) {
             const itemCountObject = {
