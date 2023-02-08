@@ -2,29 +2,27 @@ import React from "react";
 import { Box } from "@mui/material"
 import CategoryName from "./CategoryName";
 import CategoryItemList from "./CategoryItemList";
+import { ItemProps } from "../ItemInfo";
 
-export interface CategoryItemProps {
-    _id?: string
-    name?: string
-    categoryName?: string
-    categoryId?: string
-    note?: string
-    imageUrl?: string
+export interface CategoryItemProps extends ItemProps {
     firstOfLine?: boolean
     belongsToFirstLine?: boolean
+    isListReviewCategory?: boolean
+    count?: any
 }
 
-interface TryProps {
+export interface CategoryProps {
     name?: string;
     items?: Array<CategoryItemProps>;
-    _id: string;
+    _id?: string;
 }
 
-interface CategoryProps {
-    category: TryProps
-    isListReviewCategory: boolean
+
+interface CategoryComponentProps {
+    category: CategoryProps
+    isListReviewCategory?: boolean
 }
-const Category: React.FC<CategoryProps> = ({ category, isListReviewCategory }) => {
+const Category: React.FC<CategoryComponentProps> = ({ category, isListReviewCategory }) => {
     return (
         <Box>
             <CategoryName name={category?.name} />

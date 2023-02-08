@@ -8,9 +8,10 @@ import CategorySelect from "./CategorySelect";
 import ImageUrlTextField from "./ImageUrlTextField";
 import NameTextField from "./NameTextField";
 import NoteTextField from "./NoteTextField";
+import { CategoryItemProps } from '../Categories';
 
 interface AddNewItemFormProps {
-    categories: Array<object>
+    categories?: Array<CategoryItemProps>
 }
 
 const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
@@ -21,8 +22,8 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
     const { setUserIsAddingNewItem } = useContext(ShoppingDashboardContext);
     const handleAddNewItemOnClick = () => {
         async function addItemToExistingCategory() {
-            const categoryToAddItemTo = categories.find((category) => category.name.toLowerCase() === selectedCategory.toLowerCase());
-            const { _id: categoryId } = categoryToAddItemTo;
+            const categoryToAddItemTo = categories?.find((category) => category?.name?.toLowerCase() === selectedCategory.toLowerCase());
+            const categoryId = categoryToAddItemTo?._id;
             await fetch(`https://shopping-lists-api.herokuapp.com/api/categories/${categoryId}/items?name=${name}&note=${note}&imageUrl=${url}`, {
                 method: 'POST'
             })
@@ -39,8 +40,8 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
             })
             setUserIsAddingNewItem(false);
         }
-        const existingCategories = categories.map((category) => category.name.toLowerCase());
-        if (existingCategories.includes(selectedCategory.toLowerCase())) {
+        const existingCategories = categories?.map((category) => category?.name?.toLowerCase());
+        if (existingCategories?.includes(selectedCategory.toLowerCase())) {
             addItemToExistingCategory()
         } else {
             addItemToNewCategory()

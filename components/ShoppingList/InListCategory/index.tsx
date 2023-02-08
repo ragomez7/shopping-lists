@@ -2,8 +2,13 @@ import React, { createContext } from 'react';
 import { Typography } from "@mui/material";
 import { v4 as uuid } from 'uuid'
 import InListCategoryItem from "./InListCategoryItem";
+import { CategoryItemProps } from '../../Categories';
 
-export const ListCategoryContext = createContext({});
+export interface LisCategoryContextProps {
+    categoryId?: string
+}
+
+export const ListCategoryContext = createContext<LisCategoryContextProps>({});
 const InListCategory = ({ category, isInEditingMode }) => {
     const categoryItemCount = {};
     const seenItems = new Set();
@@ -15,7 +20,7 @@ const InListCategory = ({ category, isInEditingMode }) => {
             seenItems.add(item.name)
         }
     };
-    const itemCountsArray: object [] = [];
+    const itemCountsArray: CategoryItemProps [] = [];
     for ( const [itemName, itemCount] of Object.entries(categoryItemCount)) {
         const itemCountObject = {
             name: itemName,

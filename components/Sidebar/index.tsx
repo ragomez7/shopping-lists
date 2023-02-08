@@ -14,7 +14,6 @@ const SideBar = () => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 paddingY: '35px',
-                display: 'flex',
                 flexDirection: 'column'
             }}
         >

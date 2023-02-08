@@ -3,32 +3,33 @@ import ItemsList from '../../components/ItemsList';
 import ListHistory from '../../components/ListHistory';
 import ListStatistics from '../../components/ListStatistics';
 import Layout from '../../components/Layout';
+import { ItemProps } from '../../components/ItemInfo';
+import { ShoppingListProps } from '../../components/ShoppingList';
+import { CategoryProps } from '../../components/Categories';
 
 interface IShoppingDashboardContext {
     userIsAddingNewItem?: boolean
-    setUserIsAddingNewItem: (newState: boolean) => void
+    setUserIsAddingNewItem?: (newState: boolean) => void
     userIsViewingItem?: boolean
-    setUserIsViewingItem: (newState: boolean) => void
-    itemThatIsBeingViewed: object
-    setItemThatIsBeingViewed: (newState: object) => void
-    currentShoppingList: object
-    searchTerm: string
-    setSearchTerm: (newState: string) => void
-    categories: object []
-    currentUI: string
-    setCurrentUI: (newState: string) => void
-    hasEditedItemQty: number
-    setHasEditedItemQty: (newState: number) => void
-    // isEditingItemQty: boolean
-    // setIsEditingItemQty: (newState: boolean) => void
+    setUserIsViewingItem?: (newState: boolean) => void
+    itemThatIsBeingViewed?: ItemProps
+    setItemThatIsBeingViewed?: (newState: ItemProps) => void
+    currentShoppingList?: ShoppingListProps
+    searchTerm?: string
+    setSearchTerm?: (newState: string) => void
+    categories?: CategoryProps []
+    currentUI?: string
+    setCurrentUI?: (newState: string) => void
+    hasEditedItemQty?: number
+    setHasEditedItemQty?: (newState: number) => void
 }
-export const ShoppingDashboardContext = createContext<IShoppingDashboardContext>({});
+export const ShoppingDashboardContext = createContext<any>({});
 const ShoppingDashboardPage = () => {
     const [searchTerm, setSearchTerm] = useState<string>('');
-    const [categories, setCategories] = useState<Array<object>>([{}]);
+    const [categories, setCategories] = useState<Array<CategoryProps>>([{}]);
     const [userIsAddingNewItem, setUserIsAddingNewItem] = useState<boolean>(false);
-    const [itemThatIsBeingViewed, setItemThatIsBeingViewed] = useState<object>({});
-    const [currentShoppingList, setCurrentShoppingList] = useState<object>({});
+    const [itemThatIsBeingViewed, setItemThatIsBeingViewed] = useState<ItemProps>({});
+    const [currentShoppingList, setCurrentShoppingList] = useState<ShoppingListProps>({});
     const [ userIsViewingItem, setUserIsViewingItem ] = useState<boolean>(false);
     const [hasEditedItemQty, setHasEditedItemQty] = useState<number>(0);
     const [ currentUI, setCurrentUI ] = useState<string>("ItemsList");
@@ -81,9 +82,7 @@ const ShoppingDashboardPage = () => {
         currentUI,
         setCurrentUI,
         hasEditedItemQty,
-        setHasEditedItemQty
-        // isEditingItemQty,
-        // setIsEditingItemQty   
+        setHasEditedItemQty  
     }
     return (
         <ShoppingDashboardContext.Provider value={contextObject}>

@@ -2,6 +2,7 @@ import React from "react";
 import { v4 as uuid } from 'uuid';
 import { Box } from "@mui/material"
 import CategoryItem from "./CategoryItem";
+import { CategoryItemProps } from ".";
 
 const CategoryItemList = ({ category, isListReviewCategory }) => {
     if (isListReviewCategory) {
@@ -15,7 +16,7 @@ const CategoryItemList = ({ category, isListReviewCategory }) => {
                 seenItems.add(item.name)
             }
         };
-        const itemCountsArray: object[] = [];
+        const itemCountsArray: Array<CategoryItemProps> = [];
         for (const [itemName, itemCount] of Object.entries(categoryItemCount)) {
             const itemCountObject = {
                 name: itemName,

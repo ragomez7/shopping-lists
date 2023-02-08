@@ -3,20 +3,18 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Typography } from '@mui/material';
+import { v4 as uuid } from 'uuid';
 import { CategoryItemProps } from '../Categories';
 
 interface CategorySelectProps {
-    categories: Array<CategoryItemProps>
+    categories?: Array<CategoryItemProps>
     setSelectedCategory: (val: any) => void
 }
 const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelectedCategory }) => {
-    // const categoriesOptionsArray: CategoryItemProps[] = categories.map((category) => {
-    //     return { 
-    //         name: category.name, 
-    //         _id: category._id 
-    //     }
-    // })
-    const categoryNames: string[] = categories.map((category) => category.name);
+    const categoryNames: string[] = categories?.map((category) => category?.name || "") || [""];
+    const handleInputChange = (e) => {
+        setSelectedCategory(e.target.innerText || e.target.value )
+    }
     return (
         <>
             <Typography
@@ -40,17 +38,18 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelected
                     width: "310px",
                     marginTop: '7px'
                 }}
-                options={categories}
+                options={categoryNames}
                 autoHighlight
-                getOptionLabel={(option) => (option.name?option.name:'')}
-                onInputChange={(e) => {
-                    setSelectedCategory(e.target.innerText || e.target.value)
-                }}
+                getOptionLabel={(option) => (option)}
+                onInputChange={handleInputChange}
                 renderOption={(props, option) => {
                     return (
                         <>
-                            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                                {option?.name}
+                            <Box 
+                            key={uuid()}
+                            component="li" 
+                            sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+                                {option}
                             </Box>
                         </>
                     )
@@ -59,6 +58,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelected
                 }
                 renderInput={(params) => (
                     <TextField
+                        // key={uuid()}
                         sx={{
                             height: '61.25px',
                             borderRadius: '12px',

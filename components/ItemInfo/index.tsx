@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, FC } from 'react';
 import { Box } from "@mui/material"
 import BackButton from "./BackButton";
 import ItemInfoButtonSet from "./ItemInfoButtonSet";
@@ -7,14 +7,19 @@ import ItemCategory from './ItemCategory';
 import ItemName from './ItemName';
 import ItemImage from './ItemImage';
 
-export interface ItemInfoContextInterface {
-    _id: string
-    name: string
-    categoryId: string
+export interface ItemProps {
+    _id?: string
+    name?: string
+    categoryName?: string
+    categoryId?: string
+    note?: string
+    imageUrl?: string
 }
-
-export const ItemInfoContext = createContext<ItemInfoContextInterface>({})
-const ItemInfo = ({ itemThatIsBeingViewed }) => {
+export interface ItemInfoProps {
+    itemThatIsBeingViewed: ItemProps
+}
+export const ItemInfoContext = createContext<ItemProps>({})
+const ItemInfo: FC<ItemInfoProps> = ({ itemThatIsBeingViewed }) => {
     const itemInfoContext = {
         ...itemThatIsBeingViewed
     }

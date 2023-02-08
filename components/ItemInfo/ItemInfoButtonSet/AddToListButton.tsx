@@ -5,7 +5,6 @@ import { ItemInfoContext } from "..";
 import { ShoppingDashboardContext } from "../../../pages/shopping";
 
 const AddToListButton = () => {
-
     const { currentShoppingList, setUserIsViewingItem } = useContext(ShoppingDashboardContext);
     const { _id, categoryId } = useContext(ItemInfoContext);
     const handleAddToListButtonOnClick = async () => {

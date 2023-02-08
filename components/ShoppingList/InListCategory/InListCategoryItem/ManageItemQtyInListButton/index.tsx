@@ -4,10 +4,13 @@ import { ShoppingDashboardContext } from '../../../../../pages/shopping';
 import ItemCountTallyButton from './ItemCountTallyButton';
 import ManageItemQtyController from './ManageItemQtyController';
 
+interface NodeRef {
+    current: any
+}
 const ManageItemQtyInListButton = ({ innerCountTally, setInnerCountTally, itemName, controllerId }) => {
     const { hasEditedItemQty, setHasEditedItemQty } = useContext(ShoppingDashboardContext);
     const [isEditingItemQty, setIsEditingItemQty] = useState<boolean>(false);
-    const controllerRef = useRef(null);
+    const controllerRef: NodeRef = useRef<NodeRef>(null);
     useEffect(() => {
         console.log(isEditingItemQty)
         function listenForClicksOutsideController(e) {

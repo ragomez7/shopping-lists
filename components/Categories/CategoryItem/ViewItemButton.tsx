@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useContext } from 'react';
-import { ShoppingDashboardContext } from '../../../pages/shopping';
 import IconButton from "@mui/material/IconButton"
 import ViewIcon from '@mui/icons-material/Add';
+import { ShoppingDashboardContext } from '../../../pages/shopping';
+import { ItemProps } from '../../ItemInfo';
 
-const ViewItemButton = ({
+const ViewItemButton: FC<ItemProps> = ({
     _id,
     name,
     categoryName,

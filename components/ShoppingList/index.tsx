@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState, FC } from 'react';
 import { Box, Typography } from "@mui/material"
-import { useState } from "react";
 import { v4 as uuid } from 'uuid'
 import AddItemBox from "./AddItemBox";
 import EditShoppingListButton from "./EditShoppingListButton";
 import InListCategory from "./InListCategory";
+import { CategoryProps } from '../Categories';
 
+export interface ShoppingListProps {
+    _id?: string
+    name?: string
+    status?: string
+    categories?: Array<CategoryProps>
+    createdAt?: string
+    updatedAt?: string
+}
 
-const ShoppingList = ({ currentShoppingList }) => {
+interface ShoppingListComponentProps {
+    currentShoppingList: ShoppingListProps
+}
+
+const ShoppingList: FC<ShoppingListComponentProps> = ({ currentShoppingList }) => {
     const [isInEditingMode, setIsInEditingMode] = useState<boolean>(false);
-  
     return (
 
             <Box
