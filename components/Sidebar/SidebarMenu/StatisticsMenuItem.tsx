@@ -9,30 +9,12 @@ import { ShoppingDashboardContext } from '../../../pages/shopping';
 const StatisticsMenuItem = () => {
     const { setCurrentUI } = useContext(ShoppingDashboardContext);
     return (
-        <Box
-            sx={{
-                height: '90px',
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <Box className="h-[90px] w-[100%] flex justify-center items-center">
             <Tooltip title="Statistics" placement="right" >
-            <IconButton
+            <IconButton className="p-0 h-[18.5px] w-[15px]"
                 onClick={() => setCurrentUI("ListStatistics")}
-                sx={{
-                    padding: 0,
-                    height: '18.5px',
-                        width: '15px',
-                }}
             >
-                <SvgIcon
-                    sx={{
-                        
-                        padding: 0
-                    }}
-                >
+                <SvgIcon>
                     <QueryStatsIcon />
                 </SvgIcon>
             </IconButton>

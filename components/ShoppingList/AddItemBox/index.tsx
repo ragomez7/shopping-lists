@@ -4,40 +4,11 @@ import AddItemButton from "./AddItemButton";
 
 const AddItemBox = () => {
     return (
-        <Box
-            sx={{
-                minWidth: '300px',
-                height: '130px',
-                borderRadius: '24px',
-                backgroundColor: "#80485B",
-                position: 'relative'
-            }}
-        >
-            <Icon
-                sx={{
-                    width: '100px',
-                    height: '155px',
-                    textAlign: 'center',
-                    position: 'absolute',
-                    left: 15,
-                    bottom: 0
-                }}
-            >
+        <Box className="min-w-[300px] h-[130px] rounded-3xl bg-[#80485B] relative ">
+            <Icon className="w-[100px] h-[155px] text-center absolute left-[15px] bottom-[0px]">
                 <img src='https://res.cloudinary.com/dg8htxonw/image/upload/v1675553451/source_lvil20.svg' />
             </Icon>
-            <Typography
-                sx={{
-                    widht: '159px',
-                    height: '40px',
-                    color: '#FFF',
-                    paddingTop: '18px',
-                    marginLeft: '122px',
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '16px',
-                    lineHeight: '20px'
-                }}
-            >
+            <Typography className="h-[40px] text-white pt-[18px] ml-[122px] font-sans font-bold text-base leading-[20px]">
                 Didn't find what you need?
             </Typography>
             <AddItemButton />

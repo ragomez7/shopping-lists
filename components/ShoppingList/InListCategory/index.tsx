@@ -39,16 +39,7 @@ const InListCategory: FC<InListCategoryProps> = ({ category, isInEditingMode }) 
     }
     return (
         <ListCategoryContext.Provider value={inListCategoryContextObject}>
-            <Typography
-                sx={{
-                    marginTop: '40px',
-                    fontFamily: 'Quicksand',
-                    fontWeight: 500,
-                    fontSize: '14px',
-                    lineHeight: '17.5px',
-                    color: '#828282'
-                }}
-            >
+            <Typography className="mt-[40px] font-sans font-medium text-sm leading-[17.5px] text-[#828282]">
                 {category.name}
             </Typography>
             {itemCountsArray?.map((item) =>  {

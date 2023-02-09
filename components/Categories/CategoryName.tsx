@@ -6,17 +6,7 @@ interface CategoryNameProps {
 }
 const CategoryName: FC<CategoryNameProps> = ({ name }) => {
     return (
-        <Typography
-            sx={{
-                fontSize: '18px',
-                lineHeight: '22.5px',
-                fontWeight: '700',
-                color: '#34333A',
-                fontFamily: 'Quicksand',
-                marginTop: '57px'
-            }}
-
-        >
+        <Typography className="text-lg leading-[22.5px] font-bold text-[#34333A] font-['Quicksand'] mt-[57px] ">
             {name}
         </Typography>
     )

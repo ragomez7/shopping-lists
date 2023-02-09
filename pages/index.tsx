@@ -3,20 +3,9 @@ import Layout from "../components/Layout";
 import { Box } from "@mui/material";
 
 const Index = () => {
-  useEffect(() => {
-    document.location.href = `/shopping`
-  }, [])
   return (
     <Layout>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: 'column',
-          marginTop: 30,
-        }}
-      >
+      <Box className="flex justify-center items-center flex-col mt-[30px]">
       </Box>
     </Layout>
   );

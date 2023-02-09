@@ -12,28 +12,8 @@ export interface InListCategoryItemProps {
 const InListCategoryItem: FC<InListCategoryItemProps> = ({ name, count, isInEditingMode, controllerId }) => {
     const [innerCountTally, setInnerCountTally] = useState(count || 0);
     return (
-        <Box
-            sx={{
-                width: "100%",
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginTop: '30px',
-                height: '32px'
-            }}
-        >
-            <Typography
-                sx={{
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '16px',
-                    lineHeight: '22.5px',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    width: '100px'
-                }}
-            >
+        <Box className="flex items-center justify-between mt-[30px] h-[32px]">
+            <Typography className="font-sans font-bold text-base leading-[22.5px] h-[100%] flex items-center w-[100px] ">
                 {name}
             </Typography>
             {isInEditingMode ?
@@ -43,22 +23,7 @@ const InListCategoryItem: FC<InListCategoryItemProps> = ({ name, count, isInEdit
                     itemName={name} 
                     controllerId={controllerId}
                 /> :
-                <Typography
-                    sx={{
-                        fontFamily: 'Quicksand',
-                        width: '68px',
-                        height: '32px',
-                        border: '2px solid grey',
-                        borderRadius: '24px',
-                        color: 'grey',
-                        textTransform: 'none',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        fontSize: '0.875rem',
-                        fontWeight: 500
-                    }}
-                >
+                <Typography className="font-sans w-[68px] h-[32px] border-2 border-solid border-grey rounded-3xl text-grey normal-case flex justify-center items-center text-sm font-medium">
                     {innerCountTally} pcs
                 </Typography>
             }

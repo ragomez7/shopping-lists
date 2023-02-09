@@ -17,11 +17,9 @@ const AllPastLists: FC<AllPastListsProps> = ({ lists, currentShoppingList }) => 
             let parsedDate: Date | string = new Date(list.createdAt);
             parsedDate = `${dayOfWeekToString[parsedDate.getDay()]}  ${parsedDate.getDate() + 1}.${parsedDate.getMonth() + 1}.${parsedDate.getFullYear()}`
             return (
-                <Box 
-                    sx={{
-                        display: 'grid'
-                    }}
-                key={uuid()} >
+                <Box className="grid"
+                    key={uuid()} 
+                >
                     <DateTitle />
                     <ListHistoryButtonBox 
                         list={list}

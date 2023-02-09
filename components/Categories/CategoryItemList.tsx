@@ -29,12 +29,7 @@ const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCat
             itemCountsArray.push(itemCountObject);
         }
         return (
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap'
-                }}
-            >
+            <Box className="flex flex-wrap">
                 {category?.items?.length ?
                     itemCountsArray.map((item, index) => (
                         <CategoryItem
@@ -42,8 +37,8 @@ const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCat
                             name={item.name}
                             firstOfLine={index % 4 === 0}
                             belongsToFirstLine={index < 4}
-                            isListReviewCategory
                             count={item.count}
+                            isListReviewCategory
                         />
                     ))
                     :
@@ -52,12 +47,7 @@ const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCat
         )
     }
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexWrap: 'wrap'
-            }}
-        >
+        <Box className="flex flex-wrap">
             {category?.items?.length ?
                 category.items.map((item, index) => (
                     <CategoryItem
@@ -68,8 +58,6 @@ const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCat
                         categoryId={category?._id}
                         note={item.note}
                         imageUrl={item.imageUrl}
-                        firstOfLine={index % 4 === 0}
-                        belongsToFirstLine={index < 4}
                     />
                 ))
                 :

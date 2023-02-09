@@ -6,21 +6,8 @@ const AddItemButton = () => {
     const { setUserIsAddingNewItem } = useContext(ShoppingDashboardContext);
 
     return (
-        <Button
+        <Button className="ml-[122px] w-[120px] h-[40px] rounded-xl bg-white text-black font-sans font-bold text-sm leading-[17.5px] mt-[25px] "
             onClick={() => setUserIsAddingNewItem(true)}
-            style={{
-                marginLeft: '122px',
-                width: '120px',
-                height: '40px',
-                borderRadius: '12px',
-                backgroundColor: '#FFFFFF',
-                color: '#000000',
-                fontFamily: 'Quicksand',
-                fontWeight: 700,
-                fontSize: '14px',
-                lineHeight: '17.5px',
-                marginTop: '25px'
-            }}
         >
             Add Item
         </Button>

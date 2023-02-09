@@ -25,49 +25,19 @@ const ItemsList = () => {
                 gridTemplateColumns: 'auto 389px',
             }}
         >
-            <Box className="ItemsList"
-                sx={{
-                    backgroundColor: '#faf9fe',
-                    paddingLeft: "80.5px",
-                    paddingRight: "90px",
-                    paddingY: '28px'
-                }}
-            >
-                <Box sx={{
-                    display: 'flex'
-                }}>
-
-                    <Typography
-                        sx={{
-                            fontSize: '26px',
-                            lineHeight: '32.59px',
-                            fontWeight: '700',
-                            color: '#34333A',
-                            width: '450.3px',
-                            fontFamily: 'Quicksand',
-                            marginTop: '10px'
-
-                        }}
-                    >
-                        <span style={{
-                            color: '#F9A109'
-                        }}>Shopper{' '}</span>
+            <Box className="bg-backgroundgrey pl-[80.5px] pr-[90px] py-[28px]">
+                <Box className="flex">
+                    <Typography className="text-[26px] leading-8 font-bold text-black w-[450px] font-sans mt-[10px]">
+                        <span className="text-orange">Shopper{' '}</span>
                         allows you take your shopping list where you go
                     </Typography>
                     <TextField
+                        className="w-[276px] h-[51px] rounded-xl bg-white ml-[45px]  "
                         id="search-item-field"
                         name="search-item-field"
                         placeholder="search item"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        sx={{
-                            width: '276px',
-                            height: '51px',
-                            borderRadius: '12px',
-                            backgroundColor: 'white',
-                            marginLeft: '45px',
-                            border: null
-                        }}
                     />
                 </Box>
 

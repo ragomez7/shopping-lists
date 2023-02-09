@@ -9,20 +9,14 @@ interface EditShoppingListButtonProps {
 }
 const EditShoppingListButton: FC<EditShoppingListButtonProps> = ({isInEditingMode, setIsInEditingMode}) => {
     return (
-        <IconButton
+        <IconButton className="p-0 h-[24px]"
             onClick={() => setIsInEditingMode(!isInEditingMode)}
-            sx={{
-                padding: 0,
-                height: '24px'
-            }}
         >
-            <SvgIcon
+            <SvgIcon className={`${isInEditingMode ? "text-orange" : "text-grey"}`}
                 sx={{
-                    color: isInEditingMode ? "#F9A109" : 'grey',
-                    '&:hover path': {
+                    ':hover path': {
                         fill: "#F9A109",
-                    },
-                    padding: 0
+                    }
                 }}
             >
                 <EditIcon />

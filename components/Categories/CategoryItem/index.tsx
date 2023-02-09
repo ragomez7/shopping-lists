@@ -15,37 +15,11 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 }) => {
     return (
         <Box
-            sx={{
-                width: '175px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                backgroundColor: '#FFF',
-                marginRight: '40px',
-                marginTop: '30px',
-                paddingY: '13px',
-                paddingLeft: '16px',
-                paddingRight: '5px',
-                fontFamily: 'Quicksand',
-                fontWeight: 600,
-                fontSize: '16px',
-                lineHeight: '20px',
-                color: "#000",
-                borderRadius: '12px',
-                boxShadow: "0px 2px 2px"
-            }}
+            className="w-[175px] flex items-center justify-between bg-[#FFFFFF] mr-10 mt-[30px] py-[13px] pl-4 pr-[5px] font-['Quicksand'] font-semibold text-base text-[#000] rounded-xl shadow-[0px_2px_2px]"
         >
             {name}
             { isListReviewCategory ? 
-                <Typography
-                    sx={{
-                        fontFamily: 'Quicksand',
-                        fontWeight: 600,
-                        fontSize: '12px',
-                        lineHeight: '15px',
-                        color: '#F9A10A',
-                        width: '45px'
-                    }}
+                <Typography className="w-[45px] font-['Quicksand'] font-semibold text-xs text-[#F9A10A]"
                 >
                     {count} pcs
                 </Typography> :

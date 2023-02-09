@@ -22,11 +22,8 @@ const AddOneUnitButton : FC<MutateItemQtytButtonProps>= ({ itemName, innerCountT
     const listId = currentShoppingList?._id;
 
     return (
-        <IconButton
+        <IconButton className="p-0"
             onClick={handleAddOneUnitButtonOnClick}
-            sx={{
-                padding: 0
-            }}
         >
             <AddIcon />
         </IconButton>

@@ -10,13 +10,7 @@ interface ListInfoProps {
 }
 const ListInfo: FC<ListInfoProps> = ( {listStatus, parsedDate} ) => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                alignItems: 'center'
-            }}
-        >
-            
+        <Box className="flex items-center">
             <ListCreationDate parsedDate={parsedDate} />
             <ListStatus listStatus={listStatus} />
             <ArrowForwardIcon />

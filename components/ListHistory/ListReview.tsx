@@ -38,38 +38,13 @@ const ListReview: FC<ListReviewProps> = ({ listId }) => {
         setListBeingViewedId("")
     }
     return (
-        <Box className="ListReview"
-            sx={{
-                backgroundColor: '#faf9fe',
-                paddingLeft: "80.5px",
-                paddingRight: "90px",
-                paddingY: '28px'
-            }}
-        >
-            <Button
+        <Box className="bg-backgroundgrey pl-[80.5px] pr-[90px] py-[28px]">
+            <Button className="mt-[12px] font-sans font-bold leading-[17.5px] text-orange normal-case"
                 onClick={handleBackButtonOnClick}
-                style={{
-                    marginTop: '12px',
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                    lineHeight: '17.5px',
-                    color: '#F9A109',
-                    textTransform: 'none'
-                }}
             >
                 back
             </Button>
-            <Typography
-                sx={{
-                    marginTop: '35px',
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '26px',
-                    lineHeight: '32.5px',
-                    color: '#34333A'
-                }}
-            >
+            <Typography className="font-sans font-bold text-[26px] mt-[35px] text-black">
                 {name}
             </Typography>
             {categories.length ? categories.map((category) => {

@@ -19,17 +19,7 @@ const ListHistoryButtonBox: FC<ListHistoryButtonBoxProps> = ({ list, parsedDate 
             <button
                 onClick={handleButtonClick}
             >
-                <Box
-                    sx={{
-                        height: '63.5px',
-                        borderRadius: '12px',
-                        backgroundColor: '#FFF',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        paddingX: '21px',
-                    }}
-                >
+                <Box className="h-[63.5px] rounded-xl bg-white flex items-center justify-between px-[21px]">
                     <ListName listName={list.name} />
                     <ListInfo listStatus={list.status} parsedDate={parsedDate} />
                 </Box>

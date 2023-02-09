@@ -27,12 +27,8 @@ const RemoveOneUnitButton: FC<MutateItemQtytButtonProps> = ({ itemName, innerCou
     const { currentShoppingList } = useContext(ShoppingDashboardContext);
     const listId = currentShoppingList?._id;
     return (
-        <IconButton
+        <IconButton className="p-0 ml-[10px]"
             onClick={handleRemoveOneUnitButtonOnClick}
-            sx={{
-                padding: 0,
-                marginLeft: '10px'
-            }}
         >
             <SvgIcon>
                 <RemoveIcon />

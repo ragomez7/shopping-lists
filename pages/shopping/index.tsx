@@ -88,10 +88,6 @@ const ShoppingDashboardPage = () => {
         if (userIsViewingItem === false) {
             fetchAllListsAndCheckIfPendingListExistsElseCreateOne()
         }
-        
-        if(document.location.toString().includes('redirectToHistory')) {
-            setCurrentUI("ListHistory")
-        }
     }, [userIsAddingNewItem, userIsViewingItem, hasEditedItemQty])
     const contextObject = {
         userIsAddingNewItem,

@@ -26,21 +26,11 @@ const ListHistory: FC<ListHistoryProps> = ({ lists }) => {
         setListBeingViewedId
     }
     return (
-        <Box sx={{
-            display: 'grid',
-            gridTemplateColumns: 'auto 389px'
-        }} >
+        <Box className="grid grid-cols-[auto_389px]">
             <ListHistoryContext.Provider value={listHistoryContextObject}>
                 {isViewingListHistoryDetail ? 
                 <ListReview listId={listBeingViewedId || ""} /> :
-                <Box className="ListHistory"
-                    sx={{
-                        backgroundColor: '#faf9fe',
-                        paddingLeft: "80.5px",
-                        paddingRight: "90px",
-                        paddingY: '28px'
-                    }}
-                >
+                <Box className="bg-backgroundgrey pl-[80.5px] pr-[90px] py-[28px]">
                     <ListHistoryPageTitle />
                     <AllPastLists
                         lists={lists}

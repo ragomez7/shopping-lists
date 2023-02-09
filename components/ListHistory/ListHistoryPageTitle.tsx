@@ -3,16 +3,7 @@ import Typography from '@mui/material/Typography';
 
 const ListHistoryPageTitle = () => {
     return (
-        <Typography
-            sx={{
-                fontFamily: 'Quicksand',
-                fontWeight: 700,
-                fontSize: '26px',
-                lineHeight: '32.5px',
-                color: '#34333A',
-                marginTop: '10px'
-            }}
-        >
+        <Typography className="font-sans font-bold text-[26px] leading-[32.5px] text-black mt-[10px]">
             Shopping History
         </Typography>
     )

@@ -6,26 +6,10 @@ import SidebarMenu from './SidebarMenu';
 const SideBar = () => {
     return (
         <Box
-            className="SideBar"
-            sx={{
-                height: '907px',
-                width: '94px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingY: '35px',
-                flexDirection: 'column'
-            }}
-        >
-            <Box 
+            className="h-[907px] w-[94px] flex items-center justify-between py-[35px] flex-col">
+            <Box className="w-[42px] h-[42px] rounded-[20px]"
                 component="img" 
                 src="https://res.cloudinary.com/dg8htxonw/image/upload/v1658148625/j3uemdpx4kopjufnivni.jpg" 
-                sx={{
-                    width: '42px',
-                    height: '42px',
-                    borderRadius: '20px',
-                    
-                }}
             />
                 <SidebarMenu />
             <ListItemCount />

@@ -5,13 +5,7 @@ import DeleteButton from "./DeleteButton";
 
 const ItemInfoButtonSet = () => {
     return (
-        <Box
-            sx={{
-                marginTop: '34px',
-                display: 'flex',
-                justifyContent: 'space-around'
-            }}
-        >
+        <Box className="mt-[34px] flex justify-around">
             <DeleteButton />
             <AddToListButton />
         </Box>

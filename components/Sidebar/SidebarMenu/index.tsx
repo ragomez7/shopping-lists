@@ -5,12 +5,7 @@ import ListMenuItem from './ListMenuItem';
 import StatisticsMenuItem from './StatisticsMenuItem';
 const SidebarMenu = () => {
     return (
-        <Box
-            sx={{
-                height: '270px',
-                width: '100%',
-            }}
-        >
+        <Box className="h-[270px] w-[100%]">
             <ListMenuItem />
             <HistoryMenuItem />
             <StatisticsMenuItem />

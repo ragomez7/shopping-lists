@@ -6,15 +6,7 @@ interface ListNameProps {
 }
 const ListName: FC<ListNameProps> = ({ listName }) => {
     return (
-        <Typography
-            sx={{
-                fontFamily: 'Quicksand',
-                fontWeight: 700,
-                fontSize: '16px',
-                lineHeight: '20px',
-                color: '#000'
-            }}
-        >
+        <Typography className="font-sans font-bold text-base leading-[20px] text-black">
             {listName}
         </Typography>
     )

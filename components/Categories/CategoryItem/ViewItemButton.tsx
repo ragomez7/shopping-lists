@@ -18,6 +18,7 @@ const ViewItemButton: FC<ItemProps> = ({
         setItemThatIsBeingViewed(itemInfo);
         setUserIsViewingItem(true);
     }
+    
     const itemInfo = {
         _id,
         name,
@@ -26,12 +27,10 @@ const ViewItemButton: FC<ItemProps> = ({
         note,
         imageUrl
     }
+    // console.log(itemInfo)
     return (
-        <IconButton
-        onClick={handleViewItemOnClick}
-            sx={{
-                padding: 0
-            }}
+        <IconButton className="p-0"
+            onClick={handleViewItemOnClick}
         >
             <ViewIcon />
         </IconButton>

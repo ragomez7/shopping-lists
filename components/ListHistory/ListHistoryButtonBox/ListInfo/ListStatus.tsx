@@ -5,28 +5,17 @@ interface ListStatusProps {
     listStatus?: string
 }
 const ListStatus: FC<ListStatusProps> = ({ listStatus }) => {
-    return (
-        <Typography
-            sx={{
-                width: '76px',
-                height: '24px',
-                border: `1px solid ${listStatus === 'pending' ?
-                    '#F9A109' : listStatus === 'completed' ?
+    const color = listStatus === 'pending' ?
+                        '#F9A109' : listStatus === 'completed' ?
                         '#56CCF2' : listStatus === 'cancelled' ?
-                            '#EB5757' : undefined}`,
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontFamily: 'Quicksand',
-                fontWeight: 600,
-                fontSize: '12px',
-                lineHeight: '15px',
+                        '#EB5757' : undefined;
+    return (
+        <Typography className={`w-[76px] h-6 border border-solid border-color-[${color}] rounded-lg flex items-center justify-center font-sans font-semibold text-xs leading-[15px] ml-[26px]`}
+            sx={{
                 color: listStatus === 'pending' ?
                     '#F9A109' : listStatus === 'completed' ?
                         '#56CCF2' : listStatus === 'cancelled' ?
                             '#EB5757' : undefined,
-                marginLeft: '26px'
             }}
         >
             {listStatus}

@@ -21,17 +21,9 @@ const ManageItemQtyController: FC<ManageItemQtyControllerProps>  = ({
     controllerId 
 }) => {
     return (
-        <Box
+        <Box className="w-[174px] h-[45px] bg-white rounded-xl flex items-center "
             ref={refForward}
             id={`item-qty-controller-${controllerId}`}
-            sx={{
-                width: '174px',
-                height: '45px',
-                backgroundColor: '#FFF',
-                borderRadius: '12px',
-                display: 'flex',
-                alignItems: 'center'
-            }}
         >
             <RemoveAllUnitsButton />
             <RemoveOneUnitButton itemName={itemName}

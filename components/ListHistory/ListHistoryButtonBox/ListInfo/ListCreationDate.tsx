@@ -9,25 +9,10 @@ interface ListCreationDateProps {
 const ListCreationDate: FC<ListCreationDateProps> = ({ parsedDate }) => {
     return (
         <>
-            <SvgIcon
-                sx={{
-                    color: '#C1C1C4'
-                }}
-            >
+            <SvgIcon className="text-lightgrey">
                 <CalendarMonthIcon />
             </SvgIcon>
-            <Typography
-                sx={{
-                    width: '81px',
-                    height: '15px',
-                    fontFamily: 'Quicksand',
-                    fontWeight: 600,
-                    fontSize: '12px',
-                    lineHeight: '15px',
-                    color: '#C1C1C4',
-                    marginLeft: '13px'
-                }}
-            >
+            <Typography className="w-[81px] h-[15px] font-sans font-semibold text-xs leading-[15px] text-lightgrey ml-[13px]">
                 {parsedDate}
             </Typography>
         </>

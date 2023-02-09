@@ -7,27 +7,10 @@ interface ItemNameProps {
 const ItemName: FC<ItemNameProps> = ({ name }) => {
     return (
         <>
-            <Typography
-                sx={{
-                    fontFamily: 'Quicksand',
-                    fontWeight: 500,
-                    fontSize: '12px',
-                    lineHeight: '15px',
-                    color: '#C1C1C4',
-                    marginTop: '54px'
-                }}
-            >
+            <Typography className="font-sans font-medium text-xs leading-[15px] text-lightgrey mt-[54px]">
                 name
             </Typography>
-            <Typography
-                sx={{
-                    fontFamily: 'Quicksand',
-                    fontWeight: 500,
-                    fontSize: '24px',
-                    lineHeight: '30px',
-                    marginTop: '11px'
-                }}
-            >
+            <Typography className="font-sans font-medium text-2xl mt-[11px]">
                 {name}
             </Typography>
         </>

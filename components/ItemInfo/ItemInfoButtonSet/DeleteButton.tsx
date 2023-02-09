@@ -40,20 +40,8 @@ const DeleteButton = () => {
         setUserIsViewingItem(false);
     }
     return (
-            <Button
+            <Button className="font-sans font-bold text-base leading-5 w-[124px] h-[61px] text-[#000] rounded-xl normal-case border border-black border-solid"
                 onClick={handleDeleteButtonOnClick}
-                style={{
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '16px',
-                    lineHeight: '20px',
-                    width: '124px',
-                    height: '61px',
-                    color: '#000',
-                    borderRadius: '12px',
-                    textTransform: 'none',
-                    border: '1px solid black'
-                }}
             >
                 delete
             </Button>

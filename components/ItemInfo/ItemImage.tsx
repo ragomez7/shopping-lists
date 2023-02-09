@@ -6,14 +6,9 @@ interface ItemImageProps {
 }
 const ItemImage: FC<ItemImageProps> = ({ imageUrl }) => {
     return (
-        <Box
+        <Box className="w-[300px] h-[220px] rounded-3xl "
             component="img"
             src={imageUrl}
-            sx={{
-                width: '300px',
-                height: '220px',
-                borderRadius: '25px',
-            }}
         />
     )
 };

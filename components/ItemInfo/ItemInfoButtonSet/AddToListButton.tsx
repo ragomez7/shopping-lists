@@ -18,20 +18,8 @@ const AddToListButton = () => {
         setUserIsViewingItem(false);
     }
     return (
-        <Button
+        <Button className="font-['Quicksand'] font-bold text-base leading-5 w-[124px] h-[61px] bg-orange text-[#FFF] rounded-xl normal-case"
             onClick={handleAddToListButtonOnClick}
-            style={{
-                fontFamily: 'Quicksand',
-                fontWeight: 700,
-                fontSize: '16px',
-                lineHeight: '20px',
-                width: '124px',
-                height: '61px',
-                backgroundColor: '#F9A109',
-                color: '#FFF',
-                borderRadius: '12px',
-                textTransform: 'none'
-            }}
         >
             Add to list
         </Button>

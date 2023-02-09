@@ -13,16 +13,8 @@ const BackButton = () => {
         });
     }
     return (
-            <Button
+            <Button className="font-sans font-bold font-sm leading-[17.5px] text-orange normal-case"
                 onClick={handleBackButtonOnClick}
-                sx={{
-                    fontFamily: 'Quicksand',
-                    fontWeight: 700,
-                    fontSize: '14px',
-                    lineHeight: '17.5px',
-                    color: '#F9A109',
-                    textTransform: 'none'
-                }}
             >
                 back
             </Button>

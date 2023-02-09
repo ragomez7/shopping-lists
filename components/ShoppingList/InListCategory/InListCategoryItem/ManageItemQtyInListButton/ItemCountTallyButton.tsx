@@ -9,17 +9,8 @@ interface ItemCountTallyButtonProps {
 
 const ItemCountTallyButton: FC<ItemCountTallyButtonProps> = ({ innerCountTally, isActive, setIsEditingItemQty }) => {
     return (
-        <Button
+        <Button className="font-sans text-orange w-[68px] h-[32px] border-2 border-solid border-orange rounded-3xl normal-case "
             onClick={ isActive ? () => setIsEditingItemQty(true) : undefined}
-            style={{
-                fontFamily: 'Quicksand',
-                width: '68px',
-                height: '32px',
-                border: '2px solid #F9A109',
-                borderRadius: '24px',
-                color: '#F9A109',
-                textTransform: 'none'
-            }}
         >
             {innerCountTally} pcs
         </Button>

@@ -4,22 +4,11 @@ import { SvgIcon } from '@mui/material';
 import Badge from '@mui/material/Badge';
 const ListItemCount = () => {
     return (
-        <Badge badgeContent={4} color='error'
-            sx={{
-                width: '42px',
-                height: '42px',
-                borderRadius: '20px',
-                backgroundColor: '#F9A109',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}
+        <Badge className="w-[42px] h-[42px] rounded-[20px] bg-orange flex items-center justify-center" 
+            badgeContent={4} 
+            color='error'
         >
-            <SvgIcon
-                sx={{
-                    color: '#FFF'
-                }}
-            >
+            <SvgIcon className="text-white">
                 <ShoppingCartCheckoutIcon />
             </SvgIcon>
         </Badge>

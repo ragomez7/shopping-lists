@@ -3,15 +3,7 @@ import Typography from '@mui/material/Typography';
 
 const DateTitle = () => {
     return (
-        <Typography
-            sx={{
-                marginTop: '41px',
-                fontFamily: 'Quicksand',
-                fontWeight: 700,
-                fontSize: '12px',
-                lineHeight: '15px'
-            }}
-        >
+        <Typography className="mt-[41px] font-sans font-bold text-xs leading-[15px]">
             Month
         </Typography>
     )

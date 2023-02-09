@@ -6,6 +6,7 @@ import ItemNote from './ItemNote';
 import ItemCategory from './ItemCategory';
 import ItemName from './ItemName';
 import ItemImage from './ItemImage';
+import ItemField from './ItemField';
 
 export interface ItemProps {
     _id?: string
@@ -27,20 +28,19 @@ const ItemInfo: FC<ItemInfoProps> = ({ itemThatIsBeingViewed }) => {
     }
     return (
         <ItemInfoContext.Provider value={itemInfoContext}>
-            <Box className="ItemInfo"
-                sx={{
-                    width: '389px',
-                    backgroundColor: '#FFF',
-                    paddingLeft: '49px',
-                    paddingTop: '28px',
-                    paddingRight: '40px'
-                }}
-            >
+            <Box className="w-[389px] bg-white pl-[49px] pt-[28px] pr-[40px]">
                 <BackButton />
                 <ItemImage imageUrl={itemThatIsBeingViewed?.imageUrl} />
                 <ItemName name={itemThatIsBeingViewed?.name || ""} />
-                <ItemCategory categoryName={itemThatIsBeingViewed?.categoryName} />
-                <ItemNote note={itemThatIsBeingViewed?.note} />
+                <ItemField 
+                    fieldName="category"
+                    fieldValue={itemThatIsBeingViewed?.categoryName}
+                />
+                <ItemField 
+                    fieldName="note" 
+                    fieldValue={itemThatIsBeingViewed?.note} 
+                />
+                
                 <ItemInfoButtonSet />
             </Box>
         </ItemInfoContext.Provider>

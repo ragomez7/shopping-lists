@@ -22,35 +22,12 @@ interface ShoppingListComponentProps {
 const ShoppingList: FC<ShoppingListComponentProps> = ({ currentShoppingList }) => {
     const [isInEditingMode, setIsInEditingMode] = useState<boolean>(false);
     return (
-            <Box
+            <Box className="w-[389px] bg-[#FFF0DD] pl-[49px] pt-[43px] pr-[40px]"
                 id="shopping-list"
-                className="ShoppingList"
-                sx={{
-                    width: '389px',
-                    backgroundColor: '#fff0dd',
-                    paddingLeft: '49px',
-                    paddingTop: '43px',
-                    paddingRight: '40px'
-                }}
             >
                 <AddItemBox />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        marginTop: '44px',
-                    }}
-                >
-                    <Typography
-                        sx={{
-                            width: '159px',
-                            height: '30px',
-                            fontFamily: 'Quicksand',
-                            fontWeight: 700,
-                            fontSize: '24px',
-                            lineHeight: '30px'
-                        }}
-                    >
+                <Box className="flex justify-between mt-[44px]">
+                    <Typography className="w-[159px] h-[30px] font-sans font-bold text-2xl leading-[30px]">
                         {currentShoppingList?.name}
                     </Typography>
                     <EditShoppingListButton isInEditingMode={isInEditingMode} setIsInEditingMode={setIsInEditingMode} />

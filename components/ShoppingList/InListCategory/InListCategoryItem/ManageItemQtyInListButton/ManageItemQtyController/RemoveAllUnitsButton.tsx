@@ -5,20 +5,8 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const RemoveAllUnitsButton = () => {
     return (
-        <IconButton
-            style={{
-                width: '37px',
-                height: '45px',
-                backgroundColor: '#F9A109',
-                borderRadius: '12px',
-                padding: 0
-            }}
-        >
-            <SvgIcon
-                sx={{
-                    color: '#FFF'
-                }}
-            >
+        <IconButton className="w-[37px] h-[45px] bg-orange rounded-xl p-0">
+            <SvgIcon className="text-white">
                 <DeleteOutlineIcon />
             </SvgIcon>
         </IconButton>

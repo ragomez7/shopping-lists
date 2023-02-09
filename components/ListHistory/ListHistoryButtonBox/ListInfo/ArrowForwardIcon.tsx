@@ -4,12 +4,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const ArrowForwardIcon = () => {
     return (
-        <SvgIcon
-                sx={{
-                    color: '#F9A109',
-                    marginLeft: '32px'
-                }}
-            >
+        <SvgIcon className="text-orange ml-[32px]">
                 <ArrowForwardIosIcon />
             </SvgIcon>
     )

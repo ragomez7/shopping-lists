@@ -10,34 +10,17 @@ const ListMenuItem = () => {
     const { setCurrentUI } = useContext(ShoppingDashboardContext);
     const handleListButtonClick = () => {
         if (setCurrentUI) setCurrentUI("ItemsList")
-        else {
-            document.location.href = '/shopping'
-        }
+        // else {
+        //     document.location.href = '/shopping'
+        // }
     }
     return (
-        <Box
-            sx={{
-                height: '90px',
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
-        >
+        <Box className="h-[90px] w-[100%] flex justify-center items-center">
             <Tooltip title="Items" placement="right" >
-                <IconButton
+                <IconButton className="p-0 h-[18.5px] w-[15px]"
                     onClick={handleListButtonClick}
-                    sx={{
-                        padding: 0,
-                        height: '18.5px',
-                        width: '15px',
-                    }}
                 >
-                    <SvgIcon
-                        sx={{
-                            padding: 0
-                        }}
-                    >
+                    <SvgIcon>
                         <FormatListBulletedIcon />
                     </SvgIcon>
                 </IconButton>
