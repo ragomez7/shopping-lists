@@ -4,10 +4,10 @@ import { useState, FC, useContext } from "react";
 import { ShoppingDashboardContext } from "../../pages/shopping";
 import AddNewItemFormButtonSet from "./AddNewItemFormButtonSet";
 import AddNewItemFormTitle from "./AddNewItemFormTitle";
-import CategorySelect from "./CategorySelect";
-import ImageUrlTextField from "./ImageUrlTextField";
-import NameTextField from "./NameTextField";
-import NoteTextField from "./NoteTextField";
+import CategorySelect from "./AddNewItemFormTextFields/CategorySelect";
+import ImageUrlTextField from "./AddNewItemFormTextFields/ImageUrlTextField";
+import NameTextField from "./AddNewItemFormTextFields/NameTextField";
+import NoteTextField from "./AddNewItemFormTextFields/NoteTextField";
 import { CategoryItemProps } from '../Categories';
 
 interface AddNewItemFormProps {
@@ -48,13 +48,8 @@ const AddNewItemForm: FC<AddNewItemFormProps> = ({ categories }) => {
         }
     }
     return (
-        <Box className="ShoppingList"
-            sx={{
-                width: '389px',
-                backgroundColor: '#faf9fe',
-                paddingX: '29px',
-                paddingTop: '35px'
-            }}
+        <Box className="w-[389px] bg-[#FAF9FE] pl-[29px] pr-[50px] pt-[35px]"
+            id="add-new-item-form"
         >
             <AddNewItemFormTitle />
             <NameTextField name={name} setName={setName} />

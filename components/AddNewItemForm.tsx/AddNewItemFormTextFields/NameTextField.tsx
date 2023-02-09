@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import AddNewItemFormTextFieldTitle from './AddNewItemFormTextFieldTitle';
 
 interface NameTextFieldProps {
     name: string
@@ -9,19 +10,7 @@ interface NameTextFieldProps {
 const NameTextField: FC<NameTextFieldProps> = ({name, setName}) => {
     return (
         <>
-            <Typography
-                sx={{
-                    fontFamily: "Quicksand",
-                    fontWeight: 500,
-                    fontSize: '14px',
-                    lineHeight: '17.5px',
-                    color: '#34333A',
-                    marginTop: '34px',
-                    marginLeft: '2px'
-                }}
-            >
-                Name
-            </Typography>
+            <AddNewItemFormTextFieldTitle title="Name" marginTop="34px" />
             <TextField
                 required
                 id="item-field"
@@ -30,15 +19,9 @@ const NameTextField: FC<NameTextFieldProps> = ({name, setName}) => {
                 placeholder="Enter item's name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                sx={{
-                    width: '310px',
-                    height: '61.25px',
-                    marginTop: '7px'
-                }}
+                className="w-[100%] h-[61.25px] mt-[7px]"
                 InputProps={{
-                    sx: {
-                        borderRadius: '12px',
-                    }
+                    className: "rounded-xl"
                 }}
             />
         </>

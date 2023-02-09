@@ -3,21 +3,14 @@ import { Box } from "@mui/material"
 import CancelButton from "./CancelButton";
 import SaveButton from "./SaveButton";
 
-interface AddNewItemFormButtonSetnProps {
+interface AddNewItemFormButtonSetProps {
     handleAddNewItemOnClick: () => void
 }
 
-const AddNewItemFormButtonSet: FC<AddNewItemFormButtonSetnProps> = ({handleAddNewItemOnClick}) => {
+const AddNewItemFormButtonSet: FC<AddNewItemFormButtonSetProps> = ({handleAddNewItemOnClick}) => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: 'space-around',
-                width: '310px',
-                paddingX: '30px',
-                marginTop: '50px'
-            }}
-        >
+        
+        <Box className = "w-[310px] px-[30px] mt-[50px] flex justify-around">
             <CancelButton />
             <SaveButton handleAddNewItemOnClick={handleAddNewItemOnClick} />
         </Box>

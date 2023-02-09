@@ -4,22 +4,12 @@ import { Button } from "@mui/material"
 interface SaveButtonProps {
     handleAddNewItemOnClick: () => void
 }
-const SaveButton: FC<SaveButtonProps> = ({handleAddNewItemOnClick}) => {
+const SaveButton: FC<SaveButtonProps> = ({ handleAddNewItemOnClick }) => {
     return (
         <Button
+            className="w-[87px] h-[61px] bg-[#F9A109] text-white font-['Quicksand'] font-bold text-base leading-5 normal-case rounded-xl"
             onClick={handleAddNewItemOnClick}
-            style={{
-                width: "87px",
-                height: '61px',
-                backgroundColor: '#F9A109',
-                color: 'white',
-                fontFamily: 'Quicksand',
-                fontWeight: 700,
-                fontSize: '16px',
-                lineHeight: '20px',
-                textTransform: 'none',
-                borderRadius: '12px'
-            }}
+
         >
             Save
         </Button>

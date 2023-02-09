@@ -97,7 +97,7 @@ const CustomTextField: FunctionComponent<CustomTextFieldProps> = ({
 
   return (
     <>
-      <Typography className={`text-[13px] font-[500] ${title == "Name" ? "mt-[32.69px]" : "mt-[24px]"} ${isLight ? "text-black" : "text-white"}`}>
+      <Typography className={`text-[13px] font-[500] ${title === "Name" ? "mt-[32.69px]" : "mt-[24px]"} ${isLight ? "text-black" : "text-white"}`}>
         {title}
       </Typography>
       <TextField
