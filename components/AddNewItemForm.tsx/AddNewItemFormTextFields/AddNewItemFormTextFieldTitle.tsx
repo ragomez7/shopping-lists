@@ -11,8 +11,9 @@ const AddNewItemFormTextFieldTitle: FC<AddNewItemFormTextFieldTitleProps> = ({ t
             sx={{
                 marginTop,
             }}
-            children={title}
-        />
+        >
+            {title}
+        </Typography>
 
     )
 }
