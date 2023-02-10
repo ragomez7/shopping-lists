@@ -2,8 +2,6 @@ import React, { createContext, FC } from 'react';
 import { Box } from "@mui/material"
 import BackButton from "./BackButton";
 import ItemInfoButtonSet from "./ItemInfoButtonSet";
-import ItemNote from './ItemNote';
-import ItemCategory from './ItemCategory';
 import ItemName from './ItemName';
 import ItemImage from './ItemImage';
 import ItemField from './ItemField';
