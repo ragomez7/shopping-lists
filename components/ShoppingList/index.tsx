@@ -27,9 +27,9 @@ const ShoppingList: FC<ShoppingListComponentProps> = ({ currentShoppingList }) =
             >
                 <AddItemBox />
                 <Box className="flex justify-between mt-[44px]">
-                    <Typography className="w-[159px] h-[30px] font-sans font-bold text-2xl leading-[30px]">
+                    <p className="w-[159px] h-[30px] font-sans font-bold text-2xl leading-[30px]">
                         {currentShoppingList?.name}
-                    </Typography>
+                    </p>
                     <EditShoppingListButton isInEditingMode={isInEditingMode} setIsInEditingMode={setIsInEditingMode} />
                 </Box>
                 {currentShoppingList?.categories?.map((category) => (

@@ -12,9 +12,9 @@ const ListCreationDate: FC<ListCreationDateProps> = ({ parsedDate }) => {
             <SvgIcon className="text-lightgrey">
                 <CalendarMonthIcon />
             </SvgIcon>
-            <Typography className="w-[81px] h-[15px] font-sans font-semibold text-xs leading-[15px] text-lightgrey ml-[13px]">
+            <p className="w-[81px] h-[15px] font-sans font-semibold text-xs leading-[15px] text-lightgrey ml-[13px]">
                 {parsedDate}
-            </Typography>
+            </p>
         </>
     )
 };

@@ -19,10 +19,10 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
         >
             {name}
             { isListReviewCategory ? 
-                <Typography className="w-[45px] font-['Quicksand'] font-semibold text-xs text-[#F9A10A]"
+                <p className="w-[45px] font-['Quicksand'] font-semibold text-xs text-[#F9A10A]"
                 >
                     {count} pcs
-                </Typography> :
+                </p> :
                 <ViewItemButton 
                 _id={_id}
                 name={name}

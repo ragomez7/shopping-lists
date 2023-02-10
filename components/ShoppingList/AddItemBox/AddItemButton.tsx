@@ -6,11 +6,11 @@ const AddItemButton = () => {
     const { setUserIsAddingNewItem } = useContext(ShoppingDashboardContext);
 
     return (
-        <Button className="ml-[122px] w-[120px] h-[40px] rounded-xl bg-white text-black font-sans font-bold text-sm leading-[17.5px] mt-[25px] "
+        <button className="ml-[122px] w-[120px] h-[40px] rounded-xl bg-white text-black font-sans font-bold text-sm leading-[17.5px] mt-[25px] "
             onClick={() => setUserIsAddingNewItem(true)}
         >
             Add Item
-        </Button>
+        </button>
     )
 };
 export default AddItemButton;

@@ -6,9 +6,9 @@ interface ListNameProps {
 }
 const ListName: FC<ListNameProps> = ({ listName }) => {
     return (
-        <Typography className="font-sans font-bold text-base leading-[20px] text-black">
+        <p className="font-sans font-bold text-base leading-[20px] text-black">
             {listName}
-        </Typography>
+        </p>
     )
 };
 

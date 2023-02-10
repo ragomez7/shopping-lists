@@ -6,9 +6,9 @@ interface CategoryNameProps {
 }
 const CategoryName: FC<CategoryNameProps> = ({ name }) => {
     return (
-        <Typography className="text-lg leading-[22.5px] font-bold text-[#34333A] font-['Quicksand'] mt-[57px] ">
+        <p className="text-lg leading-[22.5px] font-bold text-[#34333A] font-['Quicksand'] mt-[57px] ">
             {name}
-        </Typography>
+        </p>
     )
 };
 

@@ -39,9 +39,9 @@ const InListCategory: FC<InListCategoryProps> = ({ category, isInEditingMode }) 
     }
     return (
         <ListCategoryContext.Provider value={inListCategoryContextObject}>
-            <Typography className="mt-[40px] font-sans font-medium text-sm leading-[17.5px] text-[#828282]">
+            <p className="mt-[40px] font-sans font-medium text-sm leading-[17.5px] text-[#828282]">
                 {category.name}
-            </Typography>
+            </p>
             {itemCountsArray?.map((item) =>  {
                 const key = uuid();
                 return (

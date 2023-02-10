@@ -39,14 +39,14 @@ const ListReview: FC<ListReviewProps> = ({ listId }) => {
     }
     return (
         <Box className="bg-backgroundgrey pl-[80.5px] pr-[90px] py-[28px]">
-            <Button className="mt-[12px] font-sans font-bold leading-[17.5px] text-orange normal-case"
+            <button className="mt-[12px] font-sans font-bold leading-[17.5px] text-orange normal-case"
                 onClick={handleBackButtonOnClick}
             >
                 back
-            </Button>
-            <Typography className="font-sans font-bold text-[26px] mt-[35px] text-black">
+            </button>
+            <p className="font-sans font-bold text-[26px] mt-[35px] text-black">
                 {name}
-            </Typography>
+            </p>
             {categories.length ? categories.map((category) => {
                 return (
                     <Category
