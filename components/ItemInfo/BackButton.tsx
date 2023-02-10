@@ -13,11 +13,11 @@ const BackButton = () => {
         });
     }
     return (
-            <Button className="font-sans font-bold font-sm leading-[17.5px] text-orange normal-case"
+            <button className="font-sans font-bold font-sm leading-[17.5px] text-orange normal-case"
                 onClick={handleBackButtonOnClick}
             >
                 back
-            </Button>
+            </button>
     )
 };
 

@@ -10,16 +10,16 @@ const BackButton: React.FC<BackButtonProps> = ({ handleClickBack }) => {
     const isXs = useMediaQuery("(max-width: 360px)");
 
   return (
-    <Button
+    <button
       onClick={handleClickBack}
-      sx={{
+      style={{
         textTransform: "none",
         marginTop: "29px",
         marginLeft: isXs ? 0 : "315px",
       }}
     >
       Back
-    </Button>
+    </button>
   );
 };
 

@@ -40,11 +40,11 @@ const DeleteButton = () => {
         setUserIsViewingItem(false);
     }
     return (
-            <Button className="font-sans font-bold text-base leading-5 w-[124px] h-[61px] text-[#000] rounded-xl normal-case border border-black border-solid"
+            <button className="font-sans font-bold text-base leading-5 w-[124px] h-[61px] text-[#000] rounded-xl normal-case border border-black border-solid"
                 onClick={handleDeleteButtonOnClick}
             >
                 delete
-            </Button>
+            </button>
         
     )
 };

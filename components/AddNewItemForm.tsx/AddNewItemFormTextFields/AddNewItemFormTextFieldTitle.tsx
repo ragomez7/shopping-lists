@@ -7,13 +7,13 @@ interface AddNewItemFormTextFieldTitleProps {
 }
 const AddNewItemFormTextFieldTitle: FC<AddNewItemFormTextFieldTitleProps> = ({ title, marginTop }) => {
     return (
-        <Typography className={`font-['Quicksand'] font-medium text-sm leading-[17.5px] text-[#34333A] ml-0.5`}
-            sx={{
+        <p className={`font-['Quicksand'] font-medium text-sm leading-[17.5px] text-[#34333A] ml-0.5`}
+            style={{
                 marginTop,
             }}
         >
             {title}
-        </Typography>
+        </p>
 
     )
 }

@@ -18,11 +18,11 @@ const AddToListButton = () => {
         setUserIsViewingItem(false);
     }
     return (
-        <Button className="font-['Quicksand'] font-bold text-base leading-5 w-[124px] h-[61px] bg-orange text-[#FFF] rounded-xl normal-case"
+        <button className="font-['Quicksand'] font-bold text-base leading-5 w-[124px] h-[61px] bg-orange text-[#FFF] rounded-xl normal-case"
             onClick={handleAddToListButtonOnClick}
         >
             Add to list
-        </Button>
+        </button>
     )
 };
 

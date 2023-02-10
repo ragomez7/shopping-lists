@@ -7,12 +7,12 @@ interface ItemNameProps {
 const ItemName: FC<ItemNameProps> = ({ name }) => {
     return (
         <>
-            <Typography className="font-sans font-medium text-xs leading-[15px] text-lightgrey mt-[54px]">
+            <p className="font-sans font-medium text-xs leading-[15px] text-lightgrey mt-[54px]">
                 name
-            </Typography>
-            <Typography className="font-sans font-medium text-2xl mt-[11px]">
+            </p>
+            <p className="font-sans font-medium text-2xl mt-[11px]">
                 {name}
-            </Typography>
+            </p>
         </>
     )
 };

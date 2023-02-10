@@ -10,15 +10,14 @@ const ItemField: FC<ItemCategoryProps> = ({ fieldName, fieldValue }) => {
     const wordWrap = fieldName === 'note' ? 'break-word' : null;
     return (
         <>
-            <Typography className="font-sans font-medium text-xs leading-[15px] text-lightgrey mt-[33px]"
+            <p className="font-sans font-medium text-xs leading-[15px] text-lightgrey mt-[33px]"
             >
                 {fieldName}
-            </Typography>
-            <Typography className={`font-sans font-medium text-[18px] leading-[22.5px] mt-[11px] ${height ? "h-[207px]" : null} ${wordWrap ? "break-words" : null}`}
-                noWrap={fieldName !== 'note'}
+            </p>
+            <p className={`font-sans font-medium text-[18px] leading-[22.5px] mt-[11px] ${height ? "h-[207px]" : null} ${wordWrap ? "break-words" : null}`}
             >
                 {fieldValue}
-            </Typography>
+            </p>
         </>
     )
 };
