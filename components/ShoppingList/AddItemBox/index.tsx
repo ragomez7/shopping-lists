@@ -8,9 +8,9 @@ const AddItemBox = () => {
             <Icon className="w-[100px] h-[155px] text-center absolute left-[15px] bottom-[0px]">
                 <img src='https://res.cloudinary.com/dg8htxonw/image/upload/v1675553451/source_lvil20.svg' />
             </Icon>
-            <Typography className="h-[40px] text-white pt-[18px] ml-[122px] font-sans font-bold text-base leading-[20px]">
+            <p className="h-[40px] text-white pt-[18px] ml-[122px] font-sans font-bold text-base leading-[20px]">
                 Didn't find what you need?
-            </Typography>
+            </p>
             <AddItemButton />
         </Box>
     )

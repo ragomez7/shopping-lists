@@ -27,10 +27,10 @@ const ItemsList = () => {
         >
             <Box className="bg-backgroundgrey pl-[80.5px] pr-[90px] py-[28px]">
                 <Box className="flex">
-                    <Typography className="text-[26px] leading-8 font-bold text-black w-[450px] font-sans mt-[10px]">
+                    <p className="text-[26px] leading-8 font-bold text-black w-[450px] font-sans mt-[10px]">
                         <span className="text-orange">Shopper{' '}</span>
-                        allows you take your shopping list where you go
-                    </Typography>
+                        allows you to take your shopping list where you go
+                    </p>
                     <TextField
                         className="w-[276px] h-[51px] rounded-xl bg-white ml-[45px]  "
                         id="search-item-field"
