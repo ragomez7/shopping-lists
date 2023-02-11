@@ -1,8 +1,6 @@
-import React from 'react';
-import { useContext } from 'react';
-import { ShoppingDashboardContext } from '../../pages/shopping';
-import { Button } from "@mui/material"
-
+import React from "react";
+import { useContext } from "react";
+import { ShoppingDashboardContext } from "../../pages/shopping";
 
 const BackButton = () => {
     const { setUserIsViewingItem, setItemThatIsBeingViewed } = useContext(ShoppingDashboardContext);

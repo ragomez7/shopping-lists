@@ -1,9 +1,9 @@
 import { upload } from "./services/multer"
-import path from 'path'
+import path from "path"
 import DatauriParser from "datauri/parser"
 const parser = new DatauriParser();
 
-import { v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({
   cloud_name: "dg8htxonw",

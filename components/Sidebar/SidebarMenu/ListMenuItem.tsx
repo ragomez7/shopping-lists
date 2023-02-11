@@ -1,18 +1,15 @@
-import React, { useContext } from 'react';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import SvgIcon from '@mui/material/SvgIcon'
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import Tooltip from '@mui/material/Tooltip';
-import { ShoppingDashboardContext } from '../../../pages/shopping';
+import React, { useContext } from "react";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import SvgIcon from "@mui/material/SvgIcon"
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import Tooltip from "@mui/material/Tooltip";
+import { ShoppingDashboardContext } from "../../../pages/shopping";
 
 const ListMenuItem = () => {
     const { setCurrentUI } = useContext(ShoppingDashboardContext);
     const handleListButtonClick = () => {
         if (setCurrentUI) setCurrentUI("ItemsList")
-        // else {
-        //     document.location.href = '/shopping'
-        // }
     }
     return (
         <Box className="h-[90px] w-[100%] flex justify-center items-center">

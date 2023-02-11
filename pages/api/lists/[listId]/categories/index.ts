@@ -3,7 +3,7 @@ import { ListNotFoundError } from "../..";
 import { CategoryNotFoundError } from "../../../categories";
 
 export default async function handle(req, res) {
-    if (req.method === 'GET') {
+    if (req.method === "GET") {
         const { listId } = req.query;
         try {
             const list = await List.findById(listId);
@@ -13,10 +13,10 @@ export default async function handle(req, res) {
             const { categories: listCategories } = list;
             res.status(200).send(listCategories);
         } catch (err) {
-            if (err.name === 'ListNotFoundError') res.status(404).send(err.message);
+            if (err.name === "ListNotFoundError") res.status(404).send(err.message);
             else res.status(400).send(err);
         }
-    } else if (req.method === 'POST') {
+    } else if (req.method === "POST") {
         const { listId, categoryId, itemId, itemName } = req.query;
         try {
             const category = await Category.findById(categoryId);
@@ -52,10 +52,10 @@ export default async function handle(req, res) {
             }
 
         } catch (err) {
-            if (err.name === 'CategoryNotFoundError') res.status(404).send(err.message);
+            if (err.name === "CategoryNotFoundError") res.status(404).send(err.message);
             else res.status(400).send(err);
         }
-    } else if (req.method === 'PATCH') {
+    } else if (req.method === "PATCH") {
         const { listId, categoryId, itemId } = req.query;
         try {
             const category = await Category.findById(categoryId);
@@ -80,7 +80,7 @@ export default async function handle(req, res) {
         } catch (err) {
             res.status(400).send(err)
         }
-    } else if (req.method === 'DELETE') {
+    } else if (req.method === "DELETE") {
         const { listId, categoryId, itemId, itemName, deleteAllInstances } = req.query;
         try {
             let updatedList;

@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
-import Typography from '@mui/material/Typography';
-import SvgIcon from '@mui/material/SvgIcon';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import React, { FC } from "react";
+import SvgIcon from "@mui/material/SvgIcon";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 interface ListCreationDateProps {
     parsedDate: string

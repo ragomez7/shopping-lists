@@ -1,10 +1,9 @@
-import React, { FC, useContext } from 'react';
-import Box from '@mui/material/Box';
-import { v4 as uuid } from 'uuid';
-import { useEffect, useState } from 'react';
-import { Button, Typography } from '@mui/material';
-import Category from '../Categories';
-import { ShoppingDashboardContext } from '../../pages/shopping';
+import React, { FC, useContext } from "react";
+import Box from "@mui/material/Box";
+import { v4 as uuid } from "uuid";
+import { useEffect, useState } from "react";
+import Category from "../Categories";
+import { ShoppingDashboardContext } from "../../pages/shopping";
 
 interface ListReviewProps {
     listId: string

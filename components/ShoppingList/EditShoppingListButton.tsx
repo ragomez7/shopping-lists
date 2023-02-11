@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import IconButton from '@mui/material/IconButton';
-import SvgIcon from '@mui/material/SvgIcon';
+import React, { FC } from "react";
+import IconButton from "@mui/material/IconButton";
+import SvgIcon from "@mui/material/SvgIcon";
 import EditIcon from "@mui/icons-material/Edit";
 
 interface EditShoppingListButtonProps {
@@ -14,7 +14,7 @@ const EditShoppingListButton: FC<EditShoppingListButtonProps> = ({isInEditingMod
         >
             <SvgIcon className={`${isInEditingMode ? "text-orange" : "text-grey"}`}
                 sx={{
-                    ':hover path': {
+                    ":hover path": {
                         fill: "#F9A109",
                     }
                 }}

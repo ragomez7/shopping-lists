@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import { v4 as uuid } from 'uuid';
-import { CategoryItemProps } from '../../Categories';
-import AddNewItemFormTextFieldTitle from './AddNewItemFormTextFieldTitle';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { v4 as uuid } from "uuid";
+import { CategoryItemProps } from "../../Categories";
+import AddNewItemFormTextFieldTitle from "./AddNewItemFormTextFieldTitle";
 
 interface CategorySelectProps {
     categories?: Array<CategoryItemProps>
@@ -33,7 +33,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelected
                             <Box
                                 key={uuid()}
                                 component="li"
-                                sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
+                                sx={{ "& > img": { mr: 2, flexShrink: 0 } }} {...props}>
                                 {option}
                             </Box>
                         </>
@@ -48,7 +48,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({ categories, setSelected
                         placeholder="Choose a category or enter a new one"
                         inputProps={{
                             ...params.inputProps,
-                            autoComplete: 'new-password', // disable autocomplete and autofill,
+                            autoComplete: "new-password",
                             className: "w-[200px] h-[31.25px] rounded-xl ",
                         }}
                     />

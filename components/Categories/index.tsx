@@ -17,7 +17,6 @@ export interface CategoryProps {
     _id?: string;
 }
 
-
 interface CategoryComponentProps {
     category: CategoryProps
     isListReviewCategory?: boolean

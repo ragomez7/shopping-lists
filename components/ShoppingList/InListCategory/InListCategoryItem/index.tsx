@@ -1,5 +1,5 @@
-import React, { useState, FC } from 'react';
-import { Typography, Box } from "@mui/material";
+import React, { useState, FC } from "react";
+import { Box } from "@mui/material";
 import ManageItemQtyInListButton from "./ManageItemQtyInListButton";
 
 export interface InListCategoryItemProps {

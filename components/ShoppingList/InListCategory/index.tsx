@@ -1,9 +1,8 @@
-import React, { createContext, FC } from 'react';
-import { Typography } from "@mui/material";
-import { v4 as uuid } from 'uuid'
+import React, { createContext, FC } from "react";
+import { v4 as uuid } from "uuid"
 import InListCategoryItem from "./InListCategoryItem";
-import { CategoryItemProps } from '../../Categories';
-import { CategoryProps } from '../../Categories';
+import { CategoryItemProps } from "../../Categories";
+import { CategoryProps } from "../../Categories";
 
 export interface LisCategoryContextProps {
     categoryId?: string
@@ -26,7 +25,7 @@ const InListCategory: FC<InListCategoryProps> = ({ category, isInEditingMode }) 
             seenItems.add(item.name)
         }
     }
-    const itemCountsArray: CategoryItemProps [] = [];
+    const itemCountsArray: CategoryItemProps[] = [];
     for ( const [itemName, itemCount] of Object.entries(categoryItemCount)) {
         const itemCountObject = {
             name: itemName,

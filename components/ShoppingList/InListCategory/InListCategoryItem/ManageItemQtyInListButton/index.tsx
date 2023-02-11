@@ -1,8 +1,8 @@
-import React, { useEffect, useContext, useState, useRef, FC } from 'react';
-import { ShoppingDashboardContext } from '../../../../../pages/shopping';
-import ItemCountTallyButton from './ItemCountTallyButton';
-import ManageItemQtyController from './ManageItemQtyController';
-import { MutateItemQtytButtonProps } from './ManageItemQtyController/RemoveOneUnitButton';
+import React, { useEffect, useContext, useState, useRef, FC } from "react";
+import { ShoppingDashboardContext } from "../../../../../pages/shopping";
+import ItemCountTallyButton from "./ItemCountTallyButton";
+import ManageItemQtyController from "./ManageItemQtyController";
+import { MutateItemQtytButtonProps } from "./ManageItemQtyController/RemoveOneUnitButton";
 export interface NodeRef {
     current: any
 }
@@ -22,10 +22,10 @@ const ManageItemQtyInListButton: FC<ManageQtyInListButtonProps> = ({ innerCountT
                 setHasEditedItemQty(hasEditedItemQty ? hasEditedItemQty + 1 : 1);
             }
         }
-        const shoppingListElem = document.getElementById('shopping-list')
-        shoppingListElem?.addEventListener('click', listenForClicksOutsideController)
+        const shoppingListElem = document.getElementById("shopping-list")
+        shoppingListElem?.addEventListener("click", listenForClicksOutsideController)
         return () => {
-            removeEventListener('click', listenForClicksOutsideController);
+            removeEventListener("click", listenForClicksOutsideController);
         }
     }, [controllerRef, isEditingItemQty])
     return (

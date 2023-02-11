@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
-import { useContext } from 'react';
+import React, { FC, useContext } from "react";
 import IconButton from "@mui/material/IconButton"
-import ViewIcon from '@mui/icons-material/Add';
-import { ShoppingDashboardContext } from '../../../pages/shopping';
-import { ItemProps } from '../../ItemInfo';
+import ViewIcon from "@mui/icons-material/Add";
+import { ShoppingDashboardContext } from "../../../pages/shopping";
+import { ItemProps } from "../../ItemInfo";
 
 const ViewItemButton: FC<ItemProps> = ({
     _id,
@@ -18,7 +17,6 @@ const ViewItemButton: FC<ItemProps> = ({
         setItemThatIsBeingViewed(itemInfo);
         setUserIsViewingItem(true);
     }
-    
     const itemInfo = {
         _id,
         name,
@@ -27,7 +25,6 @@ const ViewItemButton: FC<ItemProps> = ({
         note,
         imageUrl
     }
-    // console.log(itemInfo)
     return (
         <IconButton className="p-0"
             onClick={handleViewItemOnClick}

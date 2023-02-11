@@ -1,6 +1,6 @@
-import multer from 'multer';
+import multer from "multer";
 
-const ALLOWED_FORMAT = ['image/jpeg', 'image/png', 'image/jpg'];
+const ALLOWED_FORMAT = ["image/jpeg", "image/png", "image/jpg"];
 
 const storage = multer.memoryStorage();
 export const upload = multer({
@@ -9,7 +9,7 @@ export const upload = multer({
     if (ALLOWED_FORMAT.includes(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error('Not supported file format!'), false);
+      cb(new Error("Not supported file format!"), false);
     }
   }
 });

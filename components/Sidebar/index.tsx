@@ -1,7 +1,7 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import ListItemCount from './ListItemCount';
-import SidebarMenu from './SidebarMenu';
+import React from "react";
+import Box from "@mui/material/Box";
+import ListItemCount from "./ListItemCount";
+import SidebarMenu from "./SidebarMenu";
 
 const SideBar = () => {
     return (

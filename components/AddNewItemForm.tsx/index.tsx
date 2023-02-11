@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, FC, useContext } from "react";
 import { Box } from "@mui/material"
-import { useState, FC, useContext } from "react";
 import { ShoppingDashboardContext } from "../../pages/shopping";
 import AddNewItemFormButtonSet from "./AddNewItemFormButtonSet";
 import AddNewItemFormTitle from "./AddNewItemFormTitle";
@@ -8,7 +7,7 @@ import CategorySelect from "./AddNewItemFormTextFields/CategorySelect";
 import ImageUrlTextField from "./AddNewItemFormTextFields/ImageUrlTextField";
 import NameTextField from "./AddNewItemFormTextFields/NameTextField";
 import NoteTextField from "./AddNewItemFormTextFields/NoteTextField";
-import { CategoryItemProps } from '../Categories';
+import { CategoryItemProps } from "../Categories";
 
 interface AddNewItemFormProps {
     categories?: Array<CategoryItemProps>

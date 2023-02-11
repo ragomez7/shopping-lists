@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 import { Box } from "@mui/material"
 import CategoryItem from "./CategoryItem";
 import { CategoryProps, CategoryItemProps } from ".";
@@ -31,12 +31,10 @@ const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCat
         return (
             <Box className="flex flex-wrap">
                 {category?.items?.length ?
-                    itemCountsArray.map((item, index) => (
+                    itemCountsArray.map((item) => (
                         <CategoryItem
                             key={uuid()}
                             name={item.name}
-                            firstOfLine={index % 4 === 0}
-                            belongsToFirstLine={index < 4}
                             count={item.count}
                             isListReviewCategory
                         />
@@ -49,7 +47,7 @@ const CategoryItemList: FC<CategoryItemListProps> = ({ category, isListReviewCat
     return (
         <Box className="flex flex-wrap">
             {category?.items?.length ?
-                category.items.map((item, index) => (
+                category.items.map((item) => (
                     <CategoryItem
                         key={uuid()}
                         _id={item._id}

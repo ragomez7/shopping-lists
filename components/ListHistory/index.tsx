@@ -1,10 +1,10 @@
-import React, { useContext, FC, createContext } from 'react';
-import Box from '@mui/material/Box'
-import ShoppingList, { ShoppingListProps } from '../ShoppingList';
-import { ShoppingDashboardContext } from '../../pages/shopping';
-import AllPastLists from './AllPastLists';
-import ListHistoryPageTitle from './ListHistoryPageTitle';
-import ListReview from './ListReview';
+import React, { useContext, FC, createContext } from "react";
+import Box from "@mui/material/Box"
+import ShoppingList, { ShoppingListProps } from "../ShoppingList";
+import { ShoppingDashboardContext } from "../../pages/shopping";
+import AllPastLists from "./AllPastLists";
+import ListHistoryPageTitle from "./ListHistoryPageTitle";
+import ListReview from "./ListReview";
 
 interface ListHistoryProps {
     lists: Array<ShoppingListProps>

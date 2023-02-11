@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import TextField from "@mui/material/TextField";
-import AddNewItemFormTextFieldTitle from './AddNewItemFormTextFieldTitle';
+import AddNewItemFormTextFieldTitle from "./AddNewItemFormTextFieldTitle";
 
 interface ImageUrlTextFieldProps {
     url: string

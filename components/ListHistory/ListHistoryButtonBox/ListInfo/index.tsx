@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import Box from '@mui/material/Box';
-import ArrowForwardIcon from './ArrowForwardIcon';
-import ListStatus from './ListStatus';
-import ListCreationDate from './ListCreationDate';
+import React, { FC } from "react";
+import Box from "@mui/material/Box";
+import ArrowForwardIcon from "./ArrowForwardIcon";
+import ListStatus from "./ListStatus";
+import ListCreationDate from "./ListCreationDate";
 
 interface ListInfoProps {
     listStatus?: string

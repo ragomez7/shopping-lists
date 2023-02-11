@@ -1,8 +1,6 @@
-import React from 'react';
-import { useContext } from 'react';
-import { ItemInfoContext } from '..';
-import { Button } from "@mui/material"
-import { ShoppingDashboardContext } from '../../../pages/shopping';
+import React, { useContext } from "react";
+import { ItemInfoContext } from "..";
+import { ShoppingDashboardContext } from "../../../pages/shopping";
 
 const DeleteButton = () => {
     const {
@@ -16,7 +14,7 @@ const DeleteButton = () => {
         const deleteItemFromList = async () => {
             try {
                 const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/lists/${listId}/categories?categoryId=${categoryId}&itemName=${name}&deleteAllInstances=true`, {
-                    method: 'DELETE'
+                    method: "DELETE"
                 });
                 await response.json();
             } catch (err) {
@@ -27,7 +25,7 @@ const DeleteButton = () => {
         const deleteItemFromCategory = async () => {
             try {
                 const response = await fetch(`https://shopping-lists-api.herokuapp.com/api/categories/${categoryId}/items?itemId=${_id}`, {
-                    method: 'DELETE'
+                    method: "DELETE"
                 })
                 await response.json();
             } catch (err) {
